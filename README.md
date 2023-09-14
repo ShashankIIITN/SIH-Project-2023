@@ -13,3 +13,6 @@ PG dissertation is the partial requirement for the fulfillment of Pg degree. Dur
  - Shashank Tripathi  -> shashanktripathi.st15a@gmail.com
  - Smit Aghera -> agherasmit@gmail.com
  - Bino Manjesh -> binomanjesh@gmail.com
+ - Johann Michael     -> johannmichael6@gmail.com
+
+
