@@ -10,6 +10,12 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { Avatar, Container, Typography } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SupportIcon from '@mui/icons-material/Support';
+
+let ellist = [<InboxIcon/>,<SupportIcon/>, <MenuBookIcon/>, <MailIcon />]
 
 export default function SideBar(props) {
     let anchor = "left";
@@ -20,25 +26,19 @@ export default function SideBar(props) {
             onClick={props.sidebartoggle(anchor, false)}
             onKeyDown={props.sidebartoggle(anchor, false)}
         >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
-            </List>
+            <Container >
+                <List sx={{display:'flex', alignItems:'center', gap:'1rem'}}>
+                    <Avatar />
+                    <Typography variant="subtitle1" color="initial">MyApp</Typography>
+                </List>
+            </Container>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                {['About Us', 'Support', 'Guidlines', 'Contact Us'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {ellist[index]}
                             </ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItemButton>

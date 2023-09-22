@@ -18,7 +18,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { toggleDrawer } from '../../actions/SideBarActions';
+import { setLogin } from '../../actions/UserStatesManagement';
 import SideBar from '../SideBar/SideBar';
 import Fade from '@mui/material/Fade';
 import SimpleDialog from './NotificationDialogBox';
@@ -69,7 +69,7 @@ export default function PrimarySearchAppBar(props) {
   const Sidebarstate = useSelector(state => state.Sidebarstate);
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const [isLoggedin, setLoggedin] = useState(false);
+  const isLoggedin = useSelector(state => state.isLoggedin)
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -84,10 +84,10 @@ export default function PrimarySearchAppBar(props) {
     setAnchorEl(null);
   }
   const handleLogin = () => {
-    setLoggedin(true);
+    dispatch(setLogin(true));
   }
   const handleLogout = () => {
-    setLoggedin(false);
+    dispatch(setLogin(false));
   }
 
   const handleMobileMenuClose = () => {
@@ -99,9 +99,6 @@ export default function PrimarySearchAppBar(props) {
     open: null,
     close: null
   }
-
-
-
 
   const handleMenuClose = () => {
     setAnchorEl(null);
@@ -272,7 +269,10 @@ export default function PrimarySearchAppBar(props) {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                <Box  sx={{display:'flex', gap:'.2rem'}} >
+                  <AccountCircle />
+                  <Typography variant="subtitle1" color="Primary">{props.appdata.user}</Typography>
+                </Box>
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

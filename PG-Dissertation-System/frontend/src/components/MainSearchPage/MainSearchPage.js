@@ -5,7 +5,9 @@ import MatExtModal from '../MaterialExtModal/MatExtModal'
 function MainSearchPage() {
     const navData = {
         "name": "MyApp",
-    }
+        "user":"None",
+        "userID":""
+      }
     const modData = {
         "name": "External Mentors",
     }

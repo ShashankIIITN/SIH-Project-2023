@@ -1,8 +1,14 @@
 import React from 'react'
+import PrimarySearchAppBar from '../AppBar/AppBar.js'
 
 function Dashboard() {
+  const navData = {
+    "name": "MyApp",
+    "user":"Author",
+    "userID":"1234"
+  }
   return (
-    <div>DashBoard</div>
+    <PrimarySearchAppBar appdata={navData} />
   )
 }
 
