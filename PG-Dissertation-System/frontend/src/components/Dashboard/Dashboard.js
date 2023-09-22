@@ -5,6 +5,7 @@ function Dashboard() {
   const navData = {
     "name": "MyApp",
     "user":"Author",
+    "page":"Dashboard",
     "userID":"1234"
   }
   return (

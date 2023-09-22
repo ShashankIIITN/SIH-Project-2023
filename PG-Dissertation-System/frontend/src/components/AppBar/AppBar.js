@@ -146,10 +146,14 @@ export default function PrimarySearchAppBar(props) {
       } */}
       {isLoggedin ? [
         { name: "Profile", handler: handleClose },
+        { name: "History", handler: ()=> navigate('/history') },
+        { name: "Saved", handler: ()=> navigate('/saved') },
+        { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
+        { name: "Works", handler: handleClose },
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
-        <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
+        props.appdata.page != elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
       ) :
         [
           { name: "Register", handler: handleClose },

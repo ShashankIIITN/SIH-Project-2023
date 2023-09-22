@@ -1,6 +1,7 @@
 import { Card, CardContent, Stack, Typography } from '@mui/material'
 
-export default function DissertationCard({ title, tags, authors, mentor, date }) {
+export default function DissertationCard(props) {
+    const { title, tags, authors, mentor, date } = props.CardData
     return (
         <Card raised>
             <CardContent>

@@ -1,7 +1,8 @@
 import * as api from '../api';
-export const startLogin = () => async (dispatch) => {
+export const startLogin = (email,pwd) => async (dispatch) => {
     try{
-        const data = await api.fetchPosts();
+        const data = await api.LoginUser(email,pwd);
+        console.log(JSON.stringify(data));
         dispatch({type:'stLogin', payload:data})
     }catch (err){
         console.log(err.message)
