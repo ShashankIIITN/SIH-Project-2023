@@ -89,16 +89,18 @@ export default function PrimarySearchAppBar(props) {
   const handleLogout = () => {
     setLoggedin(false);
   }
+  const [openMsgDrop, setOpenMsgDrop] = useState(false);
+  const closeMsgDrop = () => {
+    setOpenMsgDrop(false);
+  }
+  const handleOpenMsgDrop = () => {
+    setOpenMsgDrop(true);
+  }
+
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
-
-
-  const DropdownHandler = {
-    open: null,
-    close: null
-  }
 
 
 
@@ -136,7 +138,7 @@ export default function PrimarySearchAppBar(props) {
       onClose={handleClose}
       TransitionComponent={Fade}
     >
-      {/* {isLoggedin && <>
+      {isLoggedin && <>
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={() => navigate('/dashboard')}>Dashboard</MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -146,20 +148,6 @@ export default function PrimarySearchAppBar(props) {
           <MenuItem onClick={handleClose}>Register</MenuItem>
           <MenuItem onClick={handleLogin}>Login</MenuItem>
         </>
-      } */}
-      {isLoggedin ? [
-        { name: "Profile", handler: handleClose },
-        { name: "Dashboard", handler: () => navigate('/dashboard') },
-        { name: "Logout", handler: handleLogout }
-      ].map((elements) =>
-        <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
-      ) :
-        [
-          { name: "Register", handler: handleClose },
-          { name: "Login", handler: handleLogin }
-        ].map((elements) =>
-          <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
-        )
       }
     </Menu>
   );
@@ -199,7 +187,7 @@ export default function PrimarySearchAppBar(props) {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p onClick={() => DropdownHandler.open()}>Notifications</p>
+        <p>Notifications</p>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -260,7 +248,7 @@ export default function PrimarySearchAppBar(props) {
                 color="inherit"
               >
                 <Badge badgeContent={17} color="error">
-                  <NotificationsIcon onClick={() => DropdownHandler.open()} />
+                  <NotificationsIcon  onClick={handleOpenMsgDrop}/>
                 </Badge>
               </IconButton>
               <IconButton
@@ -293,14 +281,10 @@ export default function PrimarySearchAppBar(props) {
         {renderMenu}
       </Box>
       <SideBar statesideBar={sidebarstate} setSideBarState={setSideBarState} sidebartoggle={toggleDrawer} />
-      {/* <SimpleDialog
+      <SimpleDialog
         selectedValue={null}
         open={openMsgDrop}
         onClose={closeMsgDrop}
-      /> */}
-      <SimpleDialog
-
-        handler={DropdownHandler}
       />
     </>
   );
