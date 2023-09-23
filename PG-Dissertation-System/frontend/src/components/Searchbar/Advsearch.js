@@ -48,7 +48,9 @@ const Advsearch = () => {
     setValue('');
     ev.target.value='';
   };
-    return (                <Grid container spacing={2}>
+    return (    <div>
+
+              <Grid container spacing={2}>
                 <Grid item xs={12}>
                 <TextField variant="standard" fullWidth label="ISSN/DOI Number"></TextField>
                 </Grid>
@@ -178,6 +180,7 @@ const Advsearch = () => {
                 />
                 </Grid> 
                 </Grid>
+                </div>  
     );
 };
 const top100Films = [

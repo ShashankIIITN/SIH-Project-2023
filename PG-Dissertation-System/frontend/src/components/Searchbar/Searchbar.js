@@ -17,30 +17,29 @@ const DemoPaper = styled(Paper)(({ theme }) => ({
 const Searchbar = () => {
   const [checked, setChecked] = React.useState(false);
 
-  
+
   const [back1, setback1] = React.useState('#1976d2');
-  
+
   const handleback1change = () => {
 
-    if(checked)
-    {
-      setback1((back1)=> '#ffffff');
+    if (checked) {
+      setback1((back1) => '#ffffff');
     }
     else
-    setback1((back1)=> '#1976d2');
+      setback1((back1) => '#1976d2');
   }
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
   return (<Collapse in={checked} timeout={500} orientation="horizontal" collapsedSize={54} onEntering={handleback1change} onExited={handleback1change}>
-    <Accordion fullwidth ><TextField sx={{background:back1, height:'3.3rem'}}
-   fullWidth disabled={!checked} InputProps={{
-    startAdornment: <InputAdornment position="start"><IconButton sx={{background:back1}} onClick={handleChange}><SearchIcon /></IconButton></InputAdornment>,
-    endAdornment: <AccordionSummary><InputAdornment position="end"><IconButton ><TuneIcon /></IconButton ></InputAdornment></AccordionSummary>,
-  }}></TextField>
-    <AccordionDetails >
-    <Advsearch />
-    </AccordionDetails>
-  </Accordion></Collapse>);
+    <Accordion fullwidth disableGutters={true}><TextField sx={{ background: back1, height: '3.3rem' }}
+      fullWidth disabled={!checked} InputProps={{
+        startAdornment: <InputAdornment position="start"><IconButton sx={{ background: back1 }} onClick={handleChange}><SearchIcon /></IconButton></InputAdornment>,
+        endAdornment: <AccordionSummary><InputAdornment position="end"><IconButton ><TuneIcon /></IconButton ></InputAdornment></AccordionSummary>,
+      }}></TextField>
+      <AccordionDetails >
+          <Advsearch  />
+      </AccordionDetails>
+    </Accordion></Collapse>);
 };
 export default Searchbar;
