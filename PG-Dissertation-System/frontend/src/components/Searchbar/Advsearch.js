@@ -16,6 +16,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
+import { useRef } from 'react'; 
 const ListItem = styled('li')(({ theme }) => ({
     margin: theme.spacing(0.5),
   }));
@@ -27,7 +28,6 @@ const Advsearch = () => {
   };
   const [chipData, setChipData] = React.useState([
   ]);
-
   const handleDelete = (chipToDelete) => () => {
     setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete.key));
   };
@@ -47,6 +47,10 @@ const Advsearch = () => {
     setChipData1([...chipData1, { key: chipData1.length, label: chiptoinsert, inc: inc1 }]);
     setValue('');
     ev.target.value='';
+  };
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current.focus();
   };
     return (                <Grid container spacing={2}>
                 <Grid item xs={12}>
@@ -89,8 +93,8 @@ const Advsearch = () => {
                 </Paper>
                 </Grid>
                 <Grid item xs={6}>
-                  <TextField variant="standard" fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
-                    if (ev.key === 'Enter' && textv.length > 0 && ev.target.className==="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input") {
+                  <TextField variant="standard" inputRef={inputRef} fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
+                    if (ev.key === 'Enter' && textv.length > 0 ) {
                         let x=0;
                         if(checked)
                         x=1;
@@ -99,7 +103,7 @@ const Advsearch = () => {
                     }
                 }} InputProps={{
                     endAdornment: <InputAdornment position="end"><FormGroup>
-                    <FormControlLabel control={<Switch checked={checked} onChange={toggleChecked}/>}  label={`${checked? 'Include':'Exclude'}`} /></FormGroup></InputAdornment>}}></TextField>
+                    <FormControlLabel control={<Switch checked={checked} onChange={toggleChecked} onClick={handleClick}/>}  label={`${checked? 'Include':'Exclude'}`} /></FormGroup></InputAdornment>}}></TextField>
                     <Paper
                     sx={{
                         display: 'flex',

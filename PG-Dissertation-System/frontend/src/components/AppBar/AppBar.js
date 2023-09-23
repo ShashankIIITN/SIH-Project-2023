@@ -229,7 +229,7 @@ export default function PrimarySearchAppBar(props) {
   let anchor = 'left';
   return (
     <>
-    <Container sx={{zIndex:10, position:'fixed', left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
+    <Container sx={{zIndex:100, position:'fixed' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
