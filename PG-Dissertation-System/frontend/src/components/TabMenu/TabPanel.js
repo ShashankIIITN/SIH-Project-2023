@@ -54,8 +54,8 @@ export default function FullWidthTabs() {
     };
 
     return (
-        <Box sx={{ bgcolor: 'background.paper', width: 500 }}>
-            <AppBar position="static">
+        <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
+            <AppBar position="static" color='default' sx={{marginTop:'.2rem'}}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -64,9 +64,9 @@ export default function FullWidthTabs() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Item One" {...a11yProps(0)} />
-                    <Tab label="Item Two" {...a11yProps(1)} />
-                    <Tab label="Item Three" {...a11yProps(2)} />
+                    <Tab label="Pending Approvals" {...a11yProps(0)} />
+                    <Tab label="Recently Approved" {...a11yProps(1)} />
+                    <Tab label="Tickets" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -75,7 +75,7 @@ export default function FullWidthTabs() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
+                    Item Onesaf awdjhawjdgaywfk
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     Item Two
