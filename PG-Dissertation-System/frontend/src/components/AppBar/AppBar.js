@@ -22,6 +22,10 @@ import { setLogin } from '../../actions/UserStatesManagement';
 import SideBar from '../SideBar/SideBar';
 import Fade from '@mui/material/Fade';
 import SimpleDialog from './NotificationDialogBox';
+import { AccordionDetails, AccordionSummary} from '@mui/material';
+import Searcbar from '../Searchbar/Searchbar';
+import '../../App.css'
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -146,10 +150,10 @@ export default function PrimarySearchAppBar(props) {
       } */}
       {isLoggedin ? [
         { name: "Profile", handler: handleClose },
-        { name: "History", handler: ()=> navigate('/history') },
-        { name: "Saved", handler: ()=> navigate('/saved') },
-        { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
-        { name: "Works", handler: handleClose },
+        { name: "History", handler: () => navigate('/history') },
+        { name: "Saved", handler: () => navigate('/saved') },
+        { name: "Sponsorship", handler: () => navigate('/sponsorship') },
+        { name: "Works", handler: () => navigate('/works') },
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
@@ -250,11 +254,23 @@ export default function PrimarySearchAppBar(props) {
           </Search> */}
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+              {/* <AccordionSummary
+                sx={{flexDirection:'row-reverse'}}
+                IconButtonProps={{
+                  disableRipple: true
+                }}
+              >
+              </AccordionSummary> */}
+                {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                  <SearchIcon onClick={() => { }} />
+                </IconButton>
+              <AccordionDetails> */}
+              {/* <Searcbar/>
+              </AccordionDetails> */}
               <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
+                  <SearchIcon onClick={() => { }} />
+                </IconButton>
+
               <IconButton
                 size="large"
                 aria-label="show 17 new notifications"
@@ -273,7 +289,7 @@ export default function PrimarySearchAppBar(props) {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <Box  sx={{display:'flex', gap:'.2rem'}} >
+                <Box sx={{ display: 'flex', gap: '.2rem' }} >
                   <AccountCircle />
                   <Typography variant="subtitle1" color="Primary">{props.appdata.user}</Typography>
                 </Box>

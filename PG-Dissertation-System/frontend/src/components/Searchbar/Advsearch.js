@@ -48,8 +48,7 @@ const Advsearch = () => {
     setValue('');
     ev.target.value='';
   };
-    return (
-                <Grid container spacing={2}>
+    return (                <Grid container spacing={2}>
                 <Grid item xs={12}>
                 <TextField fullWidth label="ISSN/DOI Number"></TextField>
                 </Grid>

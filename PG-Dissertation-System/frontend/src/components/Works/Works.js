@@ -1,18 +1,18 @@
 import React from 'react'
 import PrimarySearchAppBar from '../AppBar/AppBar'
 
-function SavedPage() {
+function Works() {
     const navData = {
         "name": "MyApp",
-        "user":"Author",
-        "page":"Saved",
+        "user":"None",
+        "page":"Works",
         "userID":""
       }
   return (
     <div>
-        <PrimarySearchAppBar appdata ={navData}/>
+        <PrimarySearchAppBar appdata = {navData} />
     </div>
   )
 }
 
-export default SavedPage
+export default Works

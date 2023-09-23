@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import HistoryPage from './components/History/HistoryPage';
 import SavedPage from './components/Saved/SavedPage';
 import Sponsorship from './components/Sponsorship/Sponsorship';
+import Works from './components/Works/Works';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/history" element = {<HistoryPage/>}></Route>
         <Route path="/saved" element = {<SavedPage/>}></Route>
         <Route path="/sponsorship" element = {<Sponsorship/>}></Route>
+        <Route path="/works" element = {<Works/>}></Route>
       </Routes>
     </>
   )
