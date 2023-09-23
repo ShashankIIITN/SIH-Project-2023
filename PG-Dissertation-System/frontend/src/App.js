@@ -14,6 +14,7 @@ import Works from './components/Works/Works';
 import Searchbar from './components/Searchbar/Searchbar';
 import RegisterModal from './components/RegisterModal/RegisterModal';
 import Ticket from './components/Ticket/Ticket';
+import Advsearchsidebar from './components/Searchbar/Advsearchsidebar';
 
 function App() {
   
@@ -21,7 +22,7 @@ function App() {
     <>
       <div className="App">
         {/* <Searchbar/> */}
-        
+        <Advsearchsidebar/>
          </div>
       <Routes>
         <Route path="/" element = {<MainSearchPage/>}></Route>

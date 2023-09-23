@@ -160,8 +160,8 @@ const Advsearchsidebar = () => {
                 </Paper>
                 </Grid>
                 <Grid item xs={1}/>
-                <Grid item xs={3}/>
-                <Grid item xs={6}>
+                <Grid item xs={2}/>
+                <Grid item xs={8}>
                     Date of Publication
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                 <DemoContainer sx={{overflow:'hidden'}} components={['DatePicker']} >
@@ -169,9 +169,9 @@ const Advsearchsidebar = () => {
                 </DemoContainer>
                 </LocalizationProvider>
                 </Grid>
-                <Grid item xs={3}/>
-                <Grid item xs={3}/>
-                <Grid item xs={6}>
+                <Grid item xs={2}/>
+                <Grid item xs={2}/>
+                <Grid item xs={8}>
                     
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
                 <DemoContainer sx={{overflow:'hidden'}} components={['DatePicker']} >
@@ -179,7 +179,7 @@ const Advsearchsidebar = () => {
                 </DemoContainer>
                 </LocalizationProvider>
                 </Grid>
-                <Grid item xs={3}/>
+                <Grid item xs={2}/>
                 <Grid item xs={1}/>
                 <Grid item xs={10} sx={{overflow:'hidden'}}>
                 <Autocomplete variant="standard"
