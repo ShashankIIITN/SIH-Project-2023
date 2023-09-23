@@ -15,6 +15,7 @@ import Chip from '@mui/material/Chip';
 import DoneIcon from '@mui/icons-material/Done';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
+import Box from '@mui/material/Box';
 const ListItem = styled('li')(({ theme }) => ({
     margin: theme.spacing(0.5),
   }));
@@ -48,31 +49,38 @@ const Advsearch = () => {
     ev.target.value='';
   };
     return (
-                <Grid container direction={'column'} spacing={2}>
+                <Grid container spacing={2}>
                 <Grid item xs={12}>
                 <TextField fullWidth label="ISSN/DOI Number"></TextField>
                 </Grid>
-                <Grid item xs={12}>
-                <TextField fullWidth label="Tags" onKeyDown={(ev) => {
-                    if (ev.key === 'Enter' && ev.target.value.length > 0) {
-                    insertchip(ev.target.value);
+                <Grid item xs={6}>
+                <Autocomplete
+                    options={top100Films} fullWidth label="Tags" onChange={(ev,v,reason) => {
+                    if (reason === "selectOption") {
+                    insertchip(v.label);
                     ev.preventDefault();
-                    ev.target.value='';
                     }
-                }}></TextField>
+                }}
+                renderInput={(params) => <TextField {...params} label="Tags"/>}></Autocomplete>
                 <Paper
                     sx={{
                         display: 'flex',
-                        justifyContent: 'center',
+                        justifyContent: 'flex-start',
                         flexWrap: 'wrap',
                         listStyle: 'none',
                     }}
-                    component="ul"
                     >
                 {chipData.map((data) => {
                     return (
                     <ListItem key={data.key}>
                         <Chip
+                        sx={{
+                          height: 'auto',
+                          '& .MuiChip-label': {
+                            display: 'block',
+                            whiteSpace: 'normal',
+                          },
+                        }}
                         label={data.label}
                         onDelete={handleDelete(data)}
                         />
@@ -81,7 +89,8 @@ const Advsearch = () => {
                 })}
                 </Paper>
                 </Grid>
-                <Grid item xs={12}><TextField fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
+                <Grid item xs={6}>
+                  <TextField fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
                     if (ev.key === 'Enter' && textv.length > 0 && ev.target.className==="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input") {
                         let x=0;
                         if(checked)
@@ -95,11 +104,10 @@ const Advsearch = () => {
                     <Paper
                     sx={{
                         display: 'flex',
-                        justifyContent: 'center',
+                        justifyContent: 'flex-start',
                         flexWrap: 'wrap',
                         listStyle: 'none',
                     }}
-                    component="ul"
                     >
                 {chipData1.map((data) => {
                     let icon;
@@ -113,6 +121,13 @@ const Advsearch = () => {
                     return (
                     <ListItem key={data.key}>
                         <Chip
+                        sx={{
+                          height: 'auto',
+                          '& .MuiChip-label': {
+                            display: 'block',
+                            whiteSpace: 'normal',
+                          },
+                        }}
                         icon={icon}
                         label={data.label}
                         onDelete={handleDelete1(data)}
@@ -131,7 +146,7 @@ const Advsearch = () => {
                 </DemoContainer>
                 </LocalizationProvider>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                 <Autocomplete
                 freeSolo
                 id="Institute"
@@ -139,7 +154,7 @@ const Advsearch = () => {
                 renderInput={(params) => <TextField {...params} label="Institute" />}
                 />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                 <Autocomplete
                 freeSolo
                 id="Department"
@@ -147,12 +162,20 @@ const Advsearch = () => {
                 renderInput={(params) => <TextField {...params} label="Department" />}
                 />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                 <Autocomplete
                 freeSolo
                 id="Author"
                 options={top100Films}
                 renderInput={(params) => <TextField {...params} label="Author" />}
+                />
+                </Grid>
+                <Grid item xs={6}>
+                <Autocomplete
+                freeSolo
+                id="Mentor"
+                options={top100Films}
+                renderInput={(params) => <TextField {...params} label="Mentor" />}
                 />
                 </Grid>
                 </Grid>
