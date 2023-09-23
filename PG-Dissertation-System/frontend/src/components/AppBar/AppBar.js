@@ -104,6 +104,9 @@ export default function PrimarySearchAppBar(props) {
     close: null
   }
 
+
+
+
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
@@ -149,11 +152,11 @@ export default function PrimarySearchAppBar(props) {
         </>
       } */}
       {isLoggedin ? [
-        { name: "Profile", handler: handleClose },
-        { name: "History", handler: () => navigate('/history') },
-        { name: "Saved", handler: () => navigate('/saved') },
-        { name: "Sponsorship", handler: () => navigate('/sponsorship') },
-        { name: "Works", handler: () => navigate('/works') },
+        { name: "Profile", handler: () => navigate('/profile') },
+        { name: "History", handler: ()=> navigate('/history') },
+        { name: "Saved", handler: ()=> navigate('/saved') },
+        { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
+        { name: "Works", handler: handleClose },
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
