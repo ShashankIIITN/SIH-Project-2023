@@ -181,8 +181,7 @@ const Advsearch = () => {
                 renderInput={(params) => <TextField variant="standard" {...params} label="Mentor" />}
                 />
                 </Grid> 
-                </Grid>
-               
+                </Grid>  
     );
 };
 const top100Films = [
