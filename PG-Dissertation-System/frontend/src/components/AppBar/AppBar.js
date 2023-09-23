@@ -231,7 +231,8 @@ export default function PrimarySearchAppBar(props) {
     <>
     <Container sx={{zIndex:100, position:'fixed' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+
+        <AppBar position="static" sx={{maxHeight:'4rem'}}>
           <Toolbar>
             <IconButton onClick={toggleDrawer('left', true)}
               size="large"

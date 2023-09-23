@@ -182,6 +182,7 @@ const Advsearch = () => {
                 />
                 </Grid> 
                 </Grid>
+                </div>  
     );
 };
 const top100Films = [
