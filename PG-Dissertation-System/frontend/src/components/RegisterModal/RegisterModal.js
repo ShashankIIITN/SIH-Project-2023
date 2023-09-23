@@ -27,14 +27,14 @@ const style = {
 
 
 
-export default function RegisterModal() {
-    const [open, setOpen] = React.useState(false);
+export default function RegisterModal(props) {
+    const open = props.state;
+    const setOpen = props.setRegWindow;
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     return (
         <div>
-            <Button onClick={handleOpen}>Open modal</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -142,7 +142,7 @@ function RegisterBody({closeAction}) {
                         //defaultValue={[top100Films[13]]}
                         filterSelectedOptions
                         renderInput={(params) => (
-                            <TextField
+                            <TextField variant="standard"
                                 sx={{ minWidth: 'min(90%, 30em)', maxWidth: '30em' }}
                                 {...params}
                                 label="Your interests"

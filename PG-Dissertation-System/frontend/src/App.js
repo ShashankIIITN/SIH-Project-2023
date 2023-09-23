@@ -11,13 +11,18 @@ import HistoryPage from './components/History/HistoryPage';
 import SavedPage from './components/Saved/SavedPage';
 import Sponsorship from './components/Sponsorship/Sponsorship';
 import Works from './components/Works/Works';
+import Searchbar from './components/Searchbar/Searchbar';
+import RegisterModal from './components/RegisterModal/RegisterModal';
+import Ticket from './components/Ticket/Ticket';
 
 function App() {
-
+  
   return (
     <>
       <div className="App">
-      </div>
+        {/* <Searchbar/> */}
+        
+         </div>
       <Routes>
         <Route path="/" element = {<MainSearchPage/>}></Route>
         <Route path="/AvdSearchPage" element = {<MainSearchPage/>}></Route>

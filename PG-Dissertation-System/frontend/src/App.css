@@ -1,9 +1,15 @@
 .App {
   text-align: center;
 }
+.customcont{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-self: 'center';
+  width: 100%;
+  height: 50vh;
 
-.accordiansummary{
-  flex-direction: row-reverse;
+
 }
 
 .App-logo {

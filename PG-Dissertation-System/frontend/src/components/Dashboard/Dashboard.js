@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PrimarySearchAppBar from '../AppBar/AppBar.js'
 import DissertationCard from '../DissertationCard/DissertationCard.jsx'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import TabPanel from '../TabMenu/TabPanel.js'
 
 function Dashboard() {
+  const {isLoggedin} = useSelector(state=>state)
+  const navigate = useNavigate();
+  useEffect(() => {
+      if(!isLoggedin)
+      {
+        navigate('/');
+      }
+  }, [isLoggedin])
+  
   const navData = {
     "name": "MyApp",
     "user": "Author",
@@ -15,7 +27,7 @@ function Dashboard() {
   return (
     <>
       <PrimarySearchAppBar appdata={navData} />
-      <DissertationCard CardData={carddata} />
+      <TabPanel/>
     </>
   )
 }

@@ -1,5 +1,6 @@
-import * as React from 'react';
-
+import React, {useEffect} from 'react';
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -27,6 +28,15 @@ const tagOptions = [
 
 
 export default function ProfilePage(props) {
+    const {isLoggedin} = useSelector(state=>state)
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(!isLoggedin)
+        {
+          navigate('/');
+        }
+    }, [isLoggedin])
+    
     const navData = {
         "name": "MyApp",
         "user":"Author",
@@ -54,7 +64,7 @@ function ProfileBody({closeAction}) {
                     alignItems: 'center',
                     alignSelf:'center',
                     maxWidth: '30em',
-                    bgcolor:'lightgray',
+                    bgcolor:'white',
                     paddingLeft:'2rem',
                     paddingRight:'2rem',
                     height:'80%'

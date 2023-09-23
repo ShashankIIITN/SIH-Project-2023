@@ -25,6 +25,8 @@ import SimpleDialog from './NotificationDialogBox';
 import { AccordionDetails, AccordionSummary} from '@mui/material';
 import Searcbar from '../Searchbar/Searchbar';
 import '../../App.css'
+import Searchbar from '../Searchbar/Searchbar';
+import RegisterModal from '../RegisterModal/RegisterModal';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -73,7 +75,8 @@ export default function PrimarySearchAppBar(props) {
   const Sidebarstate = useSelector(state => state.Sidebarstate);
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const isLoggedin = useSelector(state => state.isLoggedin)
+  const isLoggedin = useSelector(state => state.isLoggedin);
+  const [isRegWinOpen, setisRegWinOpen] = useState(false);
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -156,14 +159,14 @@ export default function PrimarySearchAppBar(props) {
         { name: "History", handler: ()=> navigate('/history') },
         { name: "Saved", handler: ()=> navigate('/saved') },
         { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
-        { name: "Works", handler: handleClose },
+        { name: "Works", handler: ()=>navigate('/works')},
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
         props.appdata.page != elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
       ) :
         [
-          { name: "Register", handler: handleClose },
+          { name: "Register", handler: ()=>setisRegWinOpen(true) },
           { name: "Login", handler: handleLogin }
         ].map((elements) =>
           <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
@@ -246,6 +249,7 @@ export default function PrimarySearchAppBar(props) {
             >
               {props.appdata.name}
             </Typography>
+            <Searchbar/>
             {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -257,22 +261,6 @@ export default function PrimarySearchAppBar(props) {
           </Search> */}
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              {/* <AccordionSummary
-                sx={{flexDirection:'row-reverse'}}
-                IconButtonProps={{
-                  disableRipple: true
-                }}
-              >
-              </AccordionSummary> */}
-                {/* <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                  <SearchIcon onClick={() => { }} />
-                </IconButton>
-              <AccordionDetails> */}
-              {/* <Searcbar/>
-              </AccordionDetails> */}
-              <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                  <SearchIcon onClick={() => { }} />
-                </IconButton>
 
               <IconButton
                 size="large"
@@ -325,6 +313,7 @@ export default function PrimarySearchAppBar(props) {
 
         handler={DropdownHandler}
       />
+      <RegisterModal state={isRegWinOpen} setRegWindow = {setisRegWinOpen}/>
     </>
   );
 }

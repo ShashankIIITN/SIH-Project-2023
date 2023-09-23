@@ -1,6 +1,7 @@
-import { Button, Card, CardContent, Checkbox, Stack, Typography } from "@mui/material";
+import { Button, Card, CardContent, Checkbox, Hidden, Stack, Typography } from "@mui/material";
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
+import { useState } from "react";
 
 const colorMap = {
   Pending: 'red',
@@ -12,13 +13,16 @@ const colorMap = {
   Low: 'green',
 };
 
-export default function Ticket({checked, title, author, priority, status}) {
+export default function Ticket(props) {
+ const { title, author, priority, status} = props.ticketData;
+ const [checked, setChecked] = useState(props.ticketData.checked);
   return (  
     <Card sx={{margin: 2}} raised>
       <CardContent>
         <Stack alignItems='center' direction='row' justifyContent='space-between'>
             <Stack gap={5} direction='row'>
-                <Checkbox checked={checked}/>
+                <Checkbox checked={checked} 
+                onChange={()=>{setChecked(!checked)}}/>
                 <Stack>
                     <Typography variant="h5">{title}</Typography>
                     <Stack direction='row'>
