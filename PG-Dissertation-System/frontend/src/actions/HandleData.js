@@ -1,6 +1,6 @@
 import * as api from '../api';
 
-export const getPosts = () => async (dispatch) => {
+export const getDissertations = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
         console.log("yaya");
@@ -10,7 +10,7 @@ export const getPosts = () => async (dispatch) => {
     }
 }   
 
-export const createPost = (post)=> async (dispatch) =>{
+export const createDissertation = (post)=> async (dispatch) =>{
     try{
         const {data} = await api.createPost(post);
 

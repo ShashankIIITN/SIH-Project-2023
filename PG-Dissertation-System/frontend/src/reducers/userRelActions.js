@@ -1,8 +1,8 @@
 export default (state = false, action) => {
     switch (action.type) {
-        case 'ToggleSideBar':
+        case 'toggleLogin':
             console.log("works")
-            return state^action.payload;
+            return action.payload;
         case 'CREATE':
             return state;
         default:
