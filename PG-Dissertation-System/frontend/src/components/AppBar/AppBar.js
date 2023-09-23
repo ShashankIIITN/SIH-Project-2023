@@ -22,7 +22,7 @@ import { setLogin } from '../../actions/UserStatesManagement';
 import SideBar from '../SideBar/SideBar';
 import Fade from '@mui/material/Fade';
 import SimpleDialog from './NotificationDialogBox';
-import { AccordionDetails, AccordionSummary} from '@mui/material';
+import { AccordionDetails, AccordionSummary, Container} from '@mui/material';
 import Searcbar from '../Searchbar/Searchbar';
 import '../../App.css'
 import Searchbar from '../Searchbar/Searchbar';
@@ -229,6 +229,7 @@ export default function PrimarySearchAppBar(props) {
   let anchor = 'left';
   return (
     <>
+    <Container sx={{zIndex:10, position:'fixed', left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
           <Toolbar>
@@ -249,7 +250,7 @@ export default function PrimarySearchAppBar(props) {
             >
               {props.appdata.name}
             </Typography>
-            <Searchbar/>
+            {/* <Searchbar /> */}
             {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
