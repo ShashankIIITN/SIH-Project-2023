@@ -1,0 +1,55 @@
+.dissertation-card-container {
+    display: flex;
+    align-items: stretch;
+}
+
+.dissertation-card-container img {
+    height: 150px;
+}
+
+.dissertation-card-container > * {
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 10px -5px rgb(162, 162, 162);
+}
+
+.dissertation-card-container > :nth-child(2) {
+    flex-grow: 1;
+}
+
+.dissertation-card {
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 200px 200px 200px 1fr auto;
+    align-content: start;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+}
+
+.dissertation-card > :nth-child(1) {
+    grid-area: 1 / 1 / 2 / -2;
+}
+
+.dissertation-card > :nth-child(2) {
+    place-self: start center;
+}
+
+.dissertation-card > :nth-child(3) {
+    grid-column: 1 / -1;
+}
+
+.dissertation-card > :nth-child(4) {
+    font-weight: bold;
+}
+
+.dissertation-card > :nth-child(5) {
+    font-weight: bold;
+}
+
+.dissertation-card > :nth-child(6) {
+    font-weight: bold;
+}
+
+.dissertation-card > :nth-child(7) {
+    grid-column-start: -2;
+}
