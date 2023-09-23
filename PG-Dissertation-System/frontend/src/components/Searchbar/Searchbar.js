@@ -8,7 +8,7 @@ import Advsearch from './Advsearch';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-const S = () => {
+const Searchbar = () => {
     return <Paper elevation={24}><Accordion><TextField fullWidth InputProps={{
         startAdornment: <InputAdornment position="start"><SearchIcon/></InputAdornment>,
         endAdornment: <AccordionSummary><InputAdornment position="end"><IconButton><TuneIcon/></IconButton></InputAdornment></AccordionSummary>,
