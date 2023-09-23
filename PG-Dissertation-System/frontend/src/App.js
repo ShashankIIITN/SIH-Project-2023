@@ -22,7 +22,7 @@ function App() {
     <>
       <div className="App">
         {/* <Searchbar/> */}
-        <Advsearchsidebar/>
+        {/* <Advsearchsidebar/> */}
          </div>
       <Routes>
         <Route path="/" element = {<MainSearchPage/>}></Route>
