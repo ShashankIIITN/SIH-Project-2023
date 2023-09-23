@@ -87,7 +87,7 @@ function ProfileBody({closeAction}) {
 
                     <Grid item sm={10} xs={12}>
                         <Typography> 
-                            Johann Michael 
+                            ABC XYZ
                         </Typography>
                     </Grid>
 
@@ -99,7 +99,7 @@ function ProfileBody({closeAction}) {
 
                     <Grid item sm={10} xs={12}>
                         <Typography>
-                            johannmichael6@gmail.com
+                            pqr@gmail.com
                         </Typography>
                     </Grid>
 
