@@ -6,6 +6,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import MainSearchPage from './components/MainSearchPage/MainSearchPage';
 import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/ProfilePage';
 
 function App() {
 
@@ -14,10 +15,11 @@ function App() {
       <div className="App">
       </div>
       <Routes>
-        <Route path="/" element = {<MainSearchPage/>}></Route>
-        <Route path="/AvdSearchPage" element = {<MainSearchPage/>}></Route>
-        <Route path="/dashboard" element = {<Dashboard/>}></Route>
-        <Route path="/dashboard" element = {<Dashboard/>}></Route>
+        <Route path="/" element = {<MainSearchPage/>}> </Route>
+        <Route path="/AvdSearchPage" element = {<MainSearchPage/>}> </Route>
+        <Route path="/dashboard" element = {<Dashboard/>}> </Route>
+        <Route path="/dashboard" element = {<Dashboard/>}> </Route>
+        <Route path="/Profile" element = {<Profile />}> </Route>
       </Routes>
     </>
   )

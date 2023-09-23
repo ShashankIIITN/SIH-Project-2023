@@ -148,7 +148,7 @@ export default function PrimarySearchAppBar(props) {
         </>
       } */}
       {isLoggedin ? [
-        { name: "Profile", handler: handleClose },
+        { name: "Profile", handler: () => navigate('/profile') },
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
