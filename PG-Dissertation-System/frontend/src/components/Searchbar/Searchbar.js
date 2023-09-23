@@ -19,4 +19,4 @@ const Searchbar = () => {
     </Accordion></Paper>;
 };
 
-export default S;
+export default Searchbar;
