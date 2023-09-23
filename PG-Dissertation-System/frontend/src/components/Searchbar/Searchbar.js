@@ -32,7 +32,7 @@ const Searchbar = () => {
     setChecked((prev) => !prev);
   };
   return (<Collapse in={checked} timeout={500} orientation="horizontal" collapsedSize={54} onEntering={handleback1change} onExited={handleback1change}>
-    <Accordion fullwidth disableGutters={true}><TextField sx={{ background: back1, height: '3.3rem' }}
+    <Accordion fullwidth disableGutters={true} sx={{overflow:'visible'}}><TextField sx={{ background: back1, height: '3.3rem' }}
       fullWidth disabled={!checked} InputProps={{
         startAdornment: <InputAdornment position="start"><IconButton sx={{ background: back1 }} onClick={handleChange}><SearchIcon /></IconButton></InputAdornment>,
         endAdornment: <AccordionSummary><InputAdornment position="end"><IconButton ><TuneIcon /></IconButton ></InputAdornment></AccordionSummary>,

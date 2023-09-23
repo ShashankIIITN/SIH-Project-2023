@@ -261,6 +261,7 @@ export default function PrimarySearchAppBar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
+          {/* <Searcbar/> */}
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 

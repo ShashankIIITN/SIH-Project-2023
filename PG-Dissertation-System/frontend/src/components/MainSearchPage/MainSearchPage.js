@@ -11,12 +11,13 @@ function MainSearchPage() {
         "page": "MainPage",
         "userID": ""
     }
+    const date = new Date();
     const DissCardData = {
-        "title": "",
-        "tags": [],
+        "title": "Understanding voices through deep learning",
+        "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
         "author": "Saitama",
         "mentor": "Etherium",
-        "date": Date.now()
+        "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
 
     };
     const modData = {

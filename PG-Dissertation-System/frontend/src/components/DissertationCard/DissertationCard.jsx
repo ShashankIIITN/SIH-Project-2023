@@ -5,7 +5,7 @@ import './DissertationCard.css'
 export default function DissertationCard(props) {
     const { title, tags, author, mentor, date } = props.CardData
     return (
-        <Card sx={{margin: 2}} elevation={5}>
+        <Card sx={{margin: 2, maxWidth:'90%'}} elevation={5}>
             <CardContent>
                 <div className="dissertation-card-container">
                     <Paper variant='outlined'>
