@@ -6,6 +6,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import MainSearchPage from './components/MainSearchPage/MainSearchPage';
 import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/ProfilePage';
 import HistoryPage from './components/History/HistoryPage';
 import SavedPage from './components/Saved/SavedPage';
 import Sponsorship from './components/Sponsorship/Sponsorship';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/history" element = {<HistoryPage/>}></Route>
         <Route path="/saved" element = {<SavedPage/>}></Route>
         <Route path="/sponsorship" element = {<Sponsorship/>}></Route>
+        <Route path='/Profile' element={<Profile />}> </Route>
       </Routes>
     </>
   )

@@ -100,6 +100,9 @@ export default function PrimarySearchAppBar(props) {
     close: null
   }
 
+
+
+
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
@@ -145,7 +148,7 @@ export default function PrimarySearchAppBar(props) {
         </>
       } */}
       {isLoggedin ? [
-        { name: "Profile", handler: handleClose },
+        { name: "Profile", handler: () => navigate('/profile') },
         { name: "History", handler: ()=> navigate('/history') },
         { name: "Saved", handler: ()=> navigate('/saved') },
         { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
