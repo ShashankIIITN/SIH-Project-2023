@@ -7,6 +7,8 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import DissertationCard from '../../DissertationCard/DissertationCard';
+import { useSelector } from 'react-redux';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -41,7 +43,7 @@ function a11yProps(index) {
     };
 }
 
-export default function FullWidthTabs() {
+export default function FullWidthTabs(props) {
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
 
@@ -52,6 +54,8 @@ export default function FullWidthTabs() {
     const handleChangeIndex = (index) => {
         setValue(index);
     };
+
+    const DissCardData = useSelector(state=>state.dissertations.recentDisserts)
 
     return (
         <Box sx={{ bgcolor: 'background.paper', width: '100%' }}>
@@ -64,9 +68,8 @@ export default function FullWidthTabs() {
                     variant="fullWidth"
                     aria-label="full width tabs example"
                 >
-                    <Tab label="Pending Approvals" {...a11yProps(0)} />
-                    <Tab label="Recently Approved" {...a11yProps(1)} />
-                    <Tab label="Tickets" {...a11yProps(2)} />
+                    <Tab label="Pending Works" {...a11yProps(0)} />
+                    <Tab label="Approved Works" {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -75,13 +78,14 @@ export default function FullWidthTabs() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item Onesaf awdjhawjdgaywfk
+                    
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
-                </TabPanel>
-                <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
+                <Box>
+                    {DissCardData.map((carddata) => {
+                        return <DissertationCard key={carddata.ID} CardData={carddata} />
+                    })}
+                </Box>
                 </TabPanel>
             </SwipeableViews>
         </Box>

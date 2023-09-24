@@ -1,6 +1,10 @@
-.App {
+/* .App {
   text-align: center;
+  background-color: aliceblue;
 }
+#root{
+  background-color: aliceblue;
+} */
 .customcont{
   display:flex;
   flex-direction: column;

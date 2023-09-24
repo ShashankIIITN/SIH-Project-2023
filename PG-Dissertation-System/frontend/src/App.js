@@ -21,14 +21,13 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
- 
+
 
   return (
-    <>
-      <div className="App">
-        {/* <Searchbar/> */}
-        {/* <Advsearchsidebar/> */}
-      </div>
+
+    <div className="App">
+      {/* <Searchbar/> */}
+      {/* <Advsearchsidebar/> */}
       <Routes>
         <Route path="/" element={<MainSearchPage />}></Route>
         <Route path="/AvdSearchPage" element={<MainSearchPage />}></Route>
@@ -39,7 +38,8 @@ function App() {
         <Route path="/works" element={<Works />}></Route>
         <Route path='/Profile' element={<Profile />}> </Route>
       </Routes>
-    </>
+    </div>
+
   )
 }
 

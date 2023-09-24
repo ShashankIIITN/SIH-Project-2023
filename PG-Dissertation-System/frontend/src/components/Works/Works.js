@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import PrimarySearchAppBar from '../AppBar/AppBar'
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/system'
+import FullWidthTabs from '../TabMenu/WorksTabs/TabPanel'
 
 function Works() {
     const {isLoggedin} = useSelector(state=>state)
@@ -25,13 +26,7 @@ function Works() {
         <>
             <PrimarySearchAppBar appdata={navData} />
             <div className='customcont'>
-                <Box >
-
-                    <Typography variant="h3" color="initial"> <u>Pending Works</u></Typography>
-                </Box>
-                <Box >
-                    <Typography variant="h3" color="initial"> <u>Recent Works</u></Typography>
-                </Box>
+               <FullWidthTabs />
             </div>
         </>
     )

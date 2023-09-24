@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import PrimarySearchAppBar from '../AppBar/AppBar.js'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import TabPanel from '../TabMenu/TabPanel.js'
+import TabPanel from '../TabMenu/DashboardTabs/TabPanel.js'
 
 function Dashboard() {
   const {isLoggedin} = useSelector(state=>state)

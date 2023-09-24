@@ -41,6 +41,12 @@ function SavedPage() {
     "name": "Ai Domain",
     "cardData": cardData
 
+  },
+  {
+
+    "name": "Medical Domain",
+    "cardData": cardData
+
   }
   ]
   const { isLoggedin } = useSelector(state => state)
