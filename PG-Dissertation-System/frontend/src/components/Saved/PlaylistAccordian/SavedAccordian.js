@@ -61,7 +61,6 @@ export default function CustomizedAccordions(props) {
                         <Typography variant='h5'>{el.name}</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-
                         <Typography  >
                             {el.cardData.map((carddata) => {
                                 return <DissertationCard key={carddata.ID} CardData={carddata} />

@@ -2,7 +2,31 @@ const date = new Date();
 
 const initialState =
 {
-    searchedDisserts: [],
+    searchedDisserts:  [{
+        "title": "Understanding voices through deep learning",
+        "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
+        "author": "Saitama",
+        "mentor": "Etherium",
+        "ID": '1',
+        "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+
+    }, {
+        "title": "Understanding voices through deep learning",
+        "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
+        "author": "Saitama",
+        "mentor": "Etherium",
+        "ID": '2',
+        "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+
+    }, {
+        "title": "Understanding voices through deep learning",
+        "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
+        "author": "Saitama",
+        "mentor": "Etherium",
+        "ID": '3',
+        "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+
+    }],
     historyDisserts: [{
         "title": "Understanding voices through deep learning",
         "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],

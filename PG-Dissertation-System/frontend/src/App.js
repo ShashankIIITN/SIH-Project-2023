@@ -17,6 +17,7 @@ import Ticket from './components/Ticket/Ticket';
 import Advsearchsidebar from './components/Searchbar/Advsearchsidebar';
 import CustomizedAccordions from './components/Saved/PlaylistAccordian/SavedAccordian';
 import { useSelector } from 'react-redux';
+import AdvSearchPage from './components/AdvSearchpage/AdvSearchPage';
 
 
 
@@ -36,7 +37,8 @@ function App() {
         <Route path="/saved" element={<SavedPage />}></Route>
         <Route path="/sponsorship" element={<Sponsorship />}></Route>
         <Route path="/works" element={<Works />}></Route>
-        <Route path='/Profile' element={<Profile />}> </Route>
+        <Route path="/Profile" element={<Profile />}> </Route>
+        <Route path="/advSearch" element={<AdvSearchPage />}> </Route>
       </Routes>
     </div>
 

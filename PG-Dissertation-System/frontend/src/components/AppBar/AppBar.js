@@ -170,8 +170,9 @@ export default function PrimarySearchAppBar(props) {
           { name: "Login", handler: handleLogin }
         ].map((elements) =>
           <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
-        )
-      }
+          )
+        }
+        <MenuItem onClick={()=>{navigate('./advSearch')}} key={'advSearch'}>Adv Search</MenuItem>
     </Menu>
   );
 
@@ -229,7 +230,7 @@ export default function PrimarySearchAppBar(props) {
   let anchor = 'left';
   return (
     <>
-    <Container sx={{zIndex:100, position:'absolute' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
+    {props.appdata.page !== 'AdvSearch' && <Container sx={{zIndex:100, position:'absolute' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>}
       <Box sx={{ flexGrow: 1 }}>
 
         <AppBar position="static" sx={{maxHeight:'4rem'}}>
