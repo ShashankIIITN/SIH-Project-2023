@@ -15,23 +15,28 @@ import Searchbar from './components/Searchbar/Searchbar';
 import RegisterModal from './components/RegisterModal/RegisterModal';
 import Ticket from './components/Ticket/Ticket';
 import Advsearchsidebar from './components/Searchbar/Advsearchsidebar';
+import CustomizedAccordions from './components/Saved/PlaylistAccordian/SavedAccordian';
+import { useSelector } from 'react-redux';
+
+
 
 function App() {
-  
+ 
+
   return (
     <>
       <div className="App">
         {/* <Searchbar/> */}
         {/* <Advsearchsidebar/> */}
-         </div>
+      </div>
       <Routes>
-        <Route path="/" element = {<MainSearchPage/>}></Route>
-        <Route path="/AvdSearchPage" element = {<MainSearchPage/>}></Route>
-        <Route path="/dashboard" element = {<Dashboard/>}></Route>
-        <Route path="/history" element = {<HistoryPage/>}></Route>
-        <Route path="/saved" element = {<SavedPage/>}></Route>
-        <Route path="/sponsorship" element = {<Sponsorship/>}></Route>
-        <Route path="/works" element = {<Works/>}></Route>
+        <Route path="/" element={<MainSearchPage />}></Route>
+        <Route path="/AvdSearchPage" element={<MainSearchPage />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/history" element={<HistoryPage />}></Route>
+        <Route path="/saved" element={<SavedPage />}></Route>
+        <Route path="/sponsorship" element={<Sponsorship />}></Route>
+        <Route path="/works" element={<Works />}></Route>
         <Route path='/Profile' element={<Profile />}> </Route>
       </Routes>
     </>

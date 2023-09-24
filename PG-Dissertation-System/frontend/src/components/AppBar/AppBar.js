@@ -163,7 +163,7 @@ export default function PrimarySearchAppBar(props) {
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
-        props.appdata.page != elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
+        props.appdata.page !== elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
       ) :
         [
           { name: "Register", handler: ()=>setisRegWinOpen(true) },
@@ -229,7 +229,7 @@ export default function PrimarySearchAppBar(props) {
   let anchor = 'left';
   return (
     <>
-    <Container sx={{zIndex:100, position:'fixed' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
+    <Container sx={{zIndex:100, position:'absolute' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>
       <Box sx={{ flexGrow: 1 }}>
 
         <AppBar position="static" sx={{maxHeight:'4rem'}}>

@@ -5,9 +5,11 @@ import PrimarySearchAppBar from '../AppBar/AppBar'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { Box } from '@mui/material'
+import DissertationCard from '../DissertationCard/DissertationCard'
 
 function HistoryPage() {
     const {isLoggedin} = useSelector(state=>state)
+    const historyDissCardData = useSelector(state=>state.dissertations.historyDisserts)
     const navigate = useNavigate();
     useEffect(() => {
         if(!isLoggedin)
@@ -23,12 +25,17 @@ function HistoryPage() {
         "userID": ""
     }
     return (
-        <div>
+       <>
             <PrimarySearchAppBar appdata={navData} />
-            <Box marginTop={2} marginLeft={2}>
-                    <Typography variant="h5" color="initial">Recent Reads</Typography>
-            </Box>
-        </div>
+            <Container maxWidth="lg" disableGutters sx={{ textAlign: 'center', paddingTop: 2 }}>
+                 <Box>
+                        <Typography variant="h4" color="initial"><u>Recent Reads</u></Typography>
+                        {historyDissCardData.map((carddata) => {
+                            return <DissertationCard key={carddata.ID} CardData={carddata} />
+                        })}
+                    </Box>
+            </Container>
+        </>
     )
 }
 

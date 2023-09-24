@@ -2,35 +2,17 @@ import React from 'react'
 import PrimarySearchAppBar from '../AppBar/AppBar'
 import MatExtModal from '../MaterialExtModal/MatExtModal'
 import DissertationCard from '../DissertationCard/DissertationCard';
-import { Box } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
+import { useSelector } from 'react-redux';
 const date = new Date();
 
-const DissCardData = [{
-    "title": "Understanding voices through deep learning",
-    "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
-    "author": "Saitama",
-    "mentor": "Etherium",
-    "ID":'1',
-    "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+function MainSearchPage(props) {
+    const recDissCardData = useSelector(state => state.dissertations.recentDisserts)
+    const prefDissCardData = useSelector(state => state.dissertations.prefDisserts)
+    console.log("asda")
+    console.log(recDissCardData);
 
-}, {
-    "title": "Understanding voices through deep learning",
-    "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
-    "author": "Saitama",
-    "mentor": "Etherium",
-    "ID":'2',
-    "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
-
-}, {
-    "title": "Understanding voices through deep learning",
-    "tags": ['AI', 'ML', 'Deep Learning', 'Nural Network'],
-    "author": "Saitama",
-    "mentor": "Etherium",
-    "ID":'3',
-    "date": date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
-
-}];
-function MainSearchPage() {
+    const { isLoggedin } = useSelector(state => state);
     const navData = {
         "name": "MyApp",
         "user": "None",
@@ -44,13 +26,20 @@ function MainSearchPage() {
     return (
         <>
             <PrimarySearchAppBar appdata={navData} />
-            <Box >
-                {DissCardData.map((carddata) => {
-
-                    return <DissertationCard key={carddata.ID} CardData={carddata} />
-                })}
-            </Box>
-            {/* <ExtModal moddata={modData} /> */}
+            <Container maxWidth="lg" disableGutters sx={{ textAlign: 'center', paddingTop: 2 }}>
+                {!isLoggedin ? <Box>
+                    <Typography variant="h4" color="initial"><u>Recent Updates</u></Typography>
+                    {recDissCardData.map((carddata) => {
+                        return <DissertationCard key={carddata.ID} CardData={carddata} />
+                    })}
+                </Box>
+                    : <Box>
+                        <Typography variant="h4" color="initial"><u>Your Preferences</u></Typography>
+                        {prefDissCardData.map((carddata) => {
+                            return <DissertationCard key={carddata.ID} CardData={carddata} />
+                        })}
+                    </Box>}
+            </Container>
             <MatExtModal />
         </>
 
