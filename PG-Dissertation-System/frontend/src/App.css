@@ -1,13 +1,36 @@
 html {
-  height: '100%'
+  height: 100%;
+  /* overflow: hidden; */
 }
 
-/* .App {
+/* div{
+  height:100%;
+} */
+.App {
   text-align: center;
   background-color: aliceblue;
+  height: 100%;
+  width: 100%;
 }
-#root{
-  background-color: aliceblue;
+
+.custdiv1 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  flex: 2;
+  padding-top: 2rem;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+/* .scrolldiv {
+  overflow: auto;
+  height: 75vh;
 } */
 
 /* .MuiBox-root::-webkit-scrollbar {

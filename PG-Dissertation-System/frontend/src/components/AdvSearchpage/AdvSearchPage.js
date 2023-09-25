@@ -21,9 +21,9 @@ function AdvSearchPage() {
     return (
         <div >
             <PrimarySearchAppBar appdata={navData} />
-            <div style={{ display: 'flex', flex: '1' }}>
+            <div style={{ display: 'flex' }}>
                 <Advsearchsidebar />
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems: 'center', flex: '2', paddingTop: '2rem' }}>
+                <div className={'custdiv1'} style={{ display: 'flex', flexDirection: 'column', gap: '2rem', alignItems:'center', flex: '2', paddingTop: '2rem' }}>
 
                     <TextField id="filled-basic" label="Filled" InputProps={{
                         endAdornment: (
@@ -36,7 +36,7 @@ function AdvSearchPage() {
                     }}
                         variant="filled" sx={{ width: '80%' }} />
 
-                    <div>
+                    <div className={'scrolldiv'}>
 
                         {searchDisserts && searchDisserts.map((carddata) => {
                             return <DissertationCard key={carddata.ID} CardData={carddata} />

@@ -24,31 +24,7 @@ const MyComponent = styled('div')({
 
 function SavedPage() {
   const cardData = useSelector(state => state.dissertations.recentDisserts)
-  const playdata = [{
-
-    "name": "My saved",
-    "cardData": cardData
-
-  },
-  {
-
-    "name": "My favs",
-    "cardData": cardData
-
-  },
-  {
-
-    "name": "Ai Domain",
-    "cardData": cardData
-
-  },
-  {
-
-    "name": "Medical Domain",
-    "cardData": cardData
-
-  }
-  ]
+  const playdata = useSelector(state => state.playlists.playdata)
   const { isLoggedin } = useSelector(state => state)
   const navigate = useNavigate();
   useEffect(() => {
