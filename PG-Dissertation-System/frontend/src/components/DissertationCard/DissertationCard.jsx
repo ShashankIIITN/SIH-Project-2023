@@ -9,8 +9,8 @@ export default function DissertationCard(props) {
             <CardContent>
                 <div className="dissertation-card-container">
                     <Paper variant='outlined'>
-                        <img src='https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg' />
-                    </Paper>
+                        <div className='disseration-image' src='https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg' />
+                    </Paper>    
                     <Paper variant='outlined'>
                         <div className='dissertation-card'>
                             <Typography variant='h4'>{title}</Typography>
