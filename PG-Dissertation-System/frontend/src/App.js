@@ -10,26 +10,38 @@ import Profile from './components/Profile/ProfilePage';
 import HistoryPage from './components/History/HistoryPage';
 import SavedPage from './components/Saved/SavedPage';
 import Sponsorship from './components/Sponsorship/Sponsorship';
+import Works from './components/Works/Works';
+import Searchbar from './components/Searchbar/Searchbar';
+import RegisterModal from './components/RegisterModal/RegisterModal';
+import Ticket from './components/Ticket/Ticket';
+import Advsearchsidebar from './components/Searchbar/Advsearchsidebar';
+import CustomizedAccordions from './components/Saved/PlaylistAccordian/SavedAccordian';
+import { useSelector } from 'react-redux';
+import AdvSearchPage from './components/AdvSearchpage/AdvSearchPage';
 
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
 
 function App() {
 
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <div className="App">
-      </div>
+
+    <div className="App">
+      {/* <Searchbar/> */}
+      {/* <Advsearchsidebar/> */}
       <Routes>
-        <Route path="/" element = {<MainSearchPage/>}></Route>
-        <Route path="/AdvSearchPage" element = {<MainSearchPage/>}></Route>
-        <Route path="/dashboard" element = {<Dashboard/>}></Route>
-        <Route path="/history" element = {<HistoryPage/>}></Route>
-        <Route path="/saved" element = {<SavedPage/>}></Route>
-        <Route path="/sponsorship" element = {<Sponsorship/>}></Route>
-        <Route path='/Profile' element={<Profile />}> </Route>
+        <Route path="/" element={<MainSearchPage />}></Route>
+        <Route path="/AvdSearchPage" element={<MainSearchPage />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/history" element={<HistoryPage />}></Route>
+        <Route path="/saved" element={<SavedPage />}></Route>
+        <Route path="/sponsorship" element={<Sponsorship />}></Route>
+        <Route path="/works" element={<Works />}></Route>
+        <Route path="/Profile" element={<Profile />}> </Route>
+        <Route path="/advSearch" element={<AdvSearchPage />}> </Route>
       </Routes>
-    </LocalizationProvider>
+    </div>
+
   )
 }
 

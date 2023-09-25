@@ -1,0 +1,13 @@
+.spcards{
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: 30rem;
+}
+div::-webkit-scrollbar {
+    height: .5rem;
+}

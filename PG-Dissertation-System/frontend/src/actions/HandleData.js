@@ -4,7 +4,7 @@ export const getDissertations = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
         console.log("yaya");
-        dispatch({ type: 'FETCH_ALL', payload: data });
+        dispatch({ type: 'SEARCH_DISS', payload: data });
     } catch (err) {
         console.log(err.message);
     }

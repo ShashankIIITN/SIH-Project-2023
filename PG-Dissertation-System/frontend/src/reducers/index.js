@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
 
-import posts from "./posts.js"
+import Dissertions from "./dissertationsReducers.js"
 import userRelActions from "./userRelActions.js";
+import Tickets from "./TicketReducers.js"
+import Playlists from "./playlistReducers"
 
-export default combineReducers({posts:posts, isLoggedin:userRelActions})
+export default combineReducers({dissertations:Dissertions, isLoggedin:userRelActions, searchString:"", tickets:Tickets, playlists:Playlists})

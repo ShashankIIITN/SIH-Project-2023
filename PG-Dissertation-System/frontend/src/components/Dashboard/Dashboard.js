@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PrimarySearchAppBar from '../AppBar/AppBar.js'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import TabPanel from '../TabMenu/DashboardTabs/TabPanel.js'
 
 function Dashboard() {
+  const {isLoggedin} = useSelector(state=>state)
+  const navigate = useNavigate();
+  useEffect(() => {
+      if(!isLoggedin)
+      {
+        navigate('/');
+      }
+  }, [isLoggedin])
+  
   const navData = {
     "name": "MyApp",
-    "user":"Author",
-    "page":"Dashboard",
-    "userID":"1234"
+    "user": "Author",
+    "page": "Dashboard",
+    "userID": "1234"
+  }
+  const carddata = {
+    "title": "asdawd", "tags": [], "authors": [], "mentor": "awdawd", "date": ""
   }
   return (
-    <PrimarySearchAppBar appdata={navData} />
+    <>
+      <PrimarySearchAppBar appdata={navData} />
+      <TabPanel/>
+    </>
   )
 }
 

@@ -13,8 +13,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
 import Typography from '@mui/material/Typography';
 import { blue } from '@mui/material/colors';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
+const emails = ['Notification 1', 'Notification 2'];
 
 export default function SimpleDialog(props) {
 //   const { onClose, selectedValue, open } = props;
@@ -37,14 +38,14 @@ export default function SimpleDialog(props) {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
-      <List sx={{ pt: 0 }}>
+      <DialogTitle alignSelf={'center'}>Notifications</DialogTitle>
+      <List sx={{ pt: 0, paddingLeft:'2rem', paddingRight:'2rem' }}>
         {emails.map((email) => (
           <ListItem disableGutters key={email}>
             <ListItemButton onClick={() => handleListItemClick(false)}>
               <ListItemAvatar>
                 <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                  <PersonIcon />
+                  <PriorityHighIcon/>
                 </Avatar>
               </ListItemAvatar>
               <ListItemText primary={email} />
@@ -56,12 +57,9 @@ export default function SimpleDialog(props) {
             autoFocus
             onClick={() => handleListItemClick(false)}
           >
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Add account" />
+            <Button variant='outlined' sx={{margin:'auto'}}>
+              Show All
+            </Button>
           </ListItemButton>
         </ListItem>
       </List>

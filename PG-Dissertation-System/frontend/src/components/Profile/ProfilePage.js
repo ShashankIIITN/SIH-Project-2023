@@ -1,5 +1,6 @@
-import * as React from 'react';
-
+import React, {useEffect} from 'react';
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -27,30 +28,46 @@ const tagOptions = [
 
 
 export default function ProfilePage(props) {
+    const {isLoggedin} = useSelector(state=>state)
+    const navigate = useNavigate();
+    useEffect(() => {
+        if(!isLoggedin)
+        {
+          navigate('/');
+        }
+    }, [isLoggedin])
+    
     const navData = {
         "name": "MyApp",
-    }
+        "user":"Author",
+        "page":"Profile",
+        "userID":""
+      }
     const modData = {
         "name": "External Mentors",
     }
     return (
-        <>
+        <Box >
             <PrimarySearchAppBar appdata={navData} />
             <ProfileBody />
-        </>
+        </Box>
     )
 }
 
 function ProfileBody({closeAction}) {
       return (
-        <Container sx={{ bgcolor: 'white' }}>
+        <Box sx={{ display:'flex',margin:'auto',justifyContent:'center', alignContent:'center',bgcolor: 'grey',height:'89vh'}}>
             <Box
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    alignSelf:'center',
                     maxWidth: '30em',
-                    margin: 'auto',
+                    bgcolor:'white',
+                    paddingLeft:'2rem',
+                    paddingRight:'2rem',
+                    height:'80%'
                 }}
             >
                 <Box sx={{
@@ -58,11 +75,10 @@ function ProfileBody({closeAction}) {
                     display: 'inline-flex',
                     flexDirection: 'row',
                     alignItems: 'center',
-                    marginTop: '1em',
                 }}
                 >
                     <Typography variant='h3'
-                        sx={{ flex: '10', textAlign: 'center', marginLeft:'0.5em', marginBottom:'1em'}}
+                        sx={{ flex: '10', textAlign: 'center', marginLeft:'0.5em'}}
                     >
                         Profile
                     </Typography>
@@ -136,12 +152,12 @@ function ProfileBody({closeAction}) {
 
                 <Button
                     variant='contained'
-                    sx={{ minWidth: 'min(100%, 20em)', height: '3.5em', marginTop: '4em' }}
+                    sx={{ minWidth: 'min(100%, 20em)', height: '3.5em', marginTop: '2em' }}
                 >
                     Link With Institute
                 </Button>
 
             </Box>
-        </Container>
+        </Box>
     );
 }

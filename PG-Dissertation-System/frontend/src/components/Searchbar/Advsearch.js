@@ -16,6 +16,7 @@ import DoneIcon from '@mui/icons-material/Done';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import Box from '@mui/material/Box';
+import { useRef } from 'react'; 
 const ListItem = styled('li')(({ theme }) => ({
     margin: theme.spacing(0.5),
   }));
@@ -27,7 +28,6 @@ const Advsearch = () => {
   };
   const [chipData, setChipData] = React.useState([
   ]);
-
   const handleDelete = (chipToDelete) => () => {
     setChipData((chips) => chips.filter((chip) => chip.key !== chipToDelete.key));
   };
@@ -48,20 +48,23 @@ const Advsearch = () => {
     setValue('');
     ev.target.value='';
   };
-    return (
-                <Grid container spacing={2}>
+  const inputRef = useRef(null);
+  const handleClick = () => {
+    inputRef.current.focus();
+  };
+    return (                <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <TextField fullWidth label="ISSN/DOI Number"></TextField>
+                <TextField variant="standard" fullWidth label="ISSN/DOI Number"></TextField>
                 </Grid>
                 <Grid item xs={6}>
-                <Autocomplete
+                <Autocomplete variant="standard"
                     options={top100Films} fullWidth label="Tags" onChange={(ev,v,reason) => {
                     if (reason === "selectOption") {
                     insertchip(v.label);
                     ev.preventDefault();
                     }
                 }}
-                renderInput={(params) => <TextField {...params} label="Tags"/>}></Autocomplete>
+                renderInput={(params) => <TextField variant="standard" {...params} label="Tags"/>}></Autocomplete>
                 <Paper
                     sx={{
                         display: 'flex',
@@ -90,8 +93,8 @@ const Advsearch = () => {
                 </Paper>
                 </Grid>
                 <Grid item xs={6}>
-                  <TextField fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
-                    if (ev.key === 'Enter' && textv.length > 0 && ev.target.className==="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input") {
+                  <TextField variant="standard" inputRef={inputRef} fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
+                    if (ev.key === 'Enter' && textv.length > 0 ) {
                         let x=0;
                         if(checked)
                         x=1;
@@ -100,7 +103,7 @@ const Advsearch = () => {
                     }
                 }} InputProps={{
                     endAdornment: <InputAdornment position="end"><FormGroup>
-                    <FormControlLabel control={<Switch checked={checked} onChange={toggleChecked}/>}  label={`${checked? 'Include':'Exclude'}`} /></FormGroup></InputAdornment>}}></TextField>
+                    <FormControlLabel control={<Switch checked={checked} onChange={toggleChecked} onClick={handleClick}/>}  label={`${checked? 'Include':'Exclude'}`} /></FormGroup></InputAdornment>}}></TextField>
                     <Paper
                     sx={{
                         display: 'flex',
@@ -140,45 +143,45 @@ const Advsearch = () => {
                 <Grid item xs={12}>
                     Date of Publication
                 <LocalizationProvider dateAdapter={AdapterDayjs} fullWidth>
-                <DemoContainer components={['DatePicker']} fullWidth>
-                    <DatePicker label="From" slotProps={{ textField: { fullWidth: true } }}/>
-                    <DatePicker label="To" slotProps={{ textField: { fullWidth: true } }}/>
+                <DemoContainer sx={{overflow:'hidden'}} components={['DatePicker']} fullWidth>
+                    <DatePicker label="From" slotProps={{ textField:  { fullWidth: true, variant: "standard" } }}/>
+                    <DatePicker label="To" slotProps={{ textField: { fullWidth: true, variant:"standard" } }}/>
                 </DemoContainer>
                 </LocalizationProvider>
                 </Grid>
                 <Grid item xs={6}>
-                <Autocomplete
+                <Autocomplete variant="standard"
                 freeSolo
                 id="Institute"
                 options={top100Films}
-                renderInput={(params) => <TextField {...params} label="Institute" />}
+                renderInput={(params) => <TextField variant="standard" {...params} label="Institute" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
-                <Autocomplete
+                <Autocomplete variant="standard"
                 freeSolo
                 id="Department"
                 options={top100Films}
-                renderInput={(params) => <TextField {...params} label="Department" />}
+                renderInput={(params) => <TextField variant="standard" {...params} label="Department" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
-                <Autocomplete
+                <Autocomplete variant="standard"
                 freeSolo
                 id="Author"
                 options={top100Films}
-                renderInput={(params) => <TextField {...params} label="Author" />}
+                renderInput={(params) => <TextField variant="standard" {...params} label="Author" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
-                <Autocomplete
+                <Autocomplete variant="standard"
                 freeSolo
                 id="Mentor"
                 options={top100Films}
-                renderInput={(params) => <TextField {...params} label="Mentor" />}
+                renderInput={(params) => <TextField variant="standard" {...params} label="Mentor" />}
                 />
-                </Grid>
-                </Grid>
+                </Grid> 
+                </Grid>  
     );
 };
 const top100Films = [

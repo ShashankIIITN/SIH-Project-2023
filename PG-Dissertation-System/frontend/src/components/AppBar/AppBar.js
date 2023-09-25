@@ -22,6 +22,12 @@ import { setLogin } from '../../actions/UserStatesManagement';
 import SideBar from '../SideBar/SideBar';
 import Fade from '@mui/material/Fade';
 import SimpleDialog from './NotificationDialogBox';
+import { AccordionDetails, AccordionSummary, Container} from '@mui/material';
+import Searcbar from '../Searchbar/Searchbar';
+import '../../App.css'
+import Searchbar from '../Searchbar/Searchbar';
+import RegisterModal from '../RegisterModal/RegisterModal';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -69,7 +75,8 @@ export default function PrimarySearchAppBar(props) {
   const Sidebarstate = useSelector(state => state.Sidebarstate);
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const isLoggedin = useSelector(state => state.isLoggedin)
+  const isLoggedin = useSelector(state => state.isLoggedin);
+  const [isRegWinOpen, setisRegWinOpen] = useState(false);
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -152,19 +159,20 @@ export default function PrimarySearchAppBar(props) {
         { name: "History", handler: ()=> navigate('/history') },
         { name: "Saved", handler: ()=> navigate('/saved') },
         { name: "Sponsorship", handler: ()=> navigate('/sponsorship') },
-        { name: "Works", handler: handleClose },
+        { name: "Works", handler: ()=>navigate('/works')},
         { name: "Dashboard", handler: () => navigate('/dashboard') },
         { name: "Logout", handler: handleLogout }
       ].map((elements) =>
-        props.appdata.page != elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
+        props.appdata.page !== elements.name && <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
       ) :
         [
-          { name: "Register", handler: handleClose },
+          { name: "Register", handler: ()=>setisRegWinOpen(true) },
           { name: "Login", handler: handleLogin }
         ].map((elements) =>
           <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
-        )
-      }
+          )
+        }
+        <MenuItem onClick={()=>{navigate('./advSearch')}} key={'advSearch'}>Adv Search</MenuItem>
     </Menu>
   );
 
@@ -222,8 +230,10 @@ export default function PrimarySearchAppBar(props) {
   let anchor = 'left';
   return (
     <>
+    {props.appdata.page !== 'AdvSearch' && <Container sx={{zIndex:100, position:'absolute' , left:'8%',top:'0.5%'}}><Searcbar ></Searcbar></Container>}
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+
+        <AppBar position="static" sx={{maxHeight:'4rem'}}>
           <Toolbar>
             <IconButton onClick={toggleDrawer('left', true)}
               size="large"
@@ -242,6 +252,7 @@ export default function PrimarySearchAppBar(props) {
             >
               {props.appdata.name}
             </Typography>
+            {/* <Searchbar /> */}
             {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -251,13 +262,10 @@ export default function PrimarySearchAppBar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
+          {/* <Searcbar/> */}
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
+
               <IconButton
                 size="large"
                 aria-label="show 17 new notifications"
@@ -276,7 +284,7 @@ export default function PrimarySearchAppBar(props) {
                 onClick={handleProfileMenuOpen}
                 color="inherit"
               >
-                <Box  sx={{display:'flex', gap:'.2rem'}} >
+                <Box sx={{ display: 'flex', gap: '.2rem' }} >
                   <AccountCircle />
                   <Typography variant="subtitle1" color="Primary">{props.appdata.user}</Typography>
                 </Box>
@@ -309,6 +317,7 @@ export default function PrimarySearchAppBar(props) {
 
         handler={DropdownHandler}
       />
+      <RegisterModal state={isRegWinOpen} setRegWindow = {setisRegWinOpen}/>
     </>
   );
 }
