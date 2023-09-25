@@ -38,8 +38,6 @@ export default function ProfilePage(props) {
             <PrimarySearchAppBar appdata={navData} />
             <ProfileBody />
         </>
-
-
     )
 }
 

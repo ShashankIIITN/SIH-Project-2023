@@ -11,22 +11,25 @@ import HistoryPage from './components/History/HistoryPage';
 import SavedPage from './components/Saved/SavedPage';
 import Sponsorship from './components/Sponsorship/Sponsorship';
 
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+
 function App() {
 
   return (
-    <>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
       <div className="App">
       </div>
       <Routes>
         <Route path="/" element = {<MainSearchPage/>}></Route>
-        <Route path="/AvdSearchPage" element = {<MainSearchPage/>}></Route>
+        <Route path="/AdvSearchPage" element = {<MainSearchPage/>}></Route>
         <Route path="/dashboard" element = {<Dashboard/>}></Route>
         <Route path="/history" element = {<HistoryPage/>}></Route>
         <Route path="/saved" element = {<SavedPage/>}></Route>
         <Route path="/sponsorship" element = {<Sponsorship/>}></Route>
         <Route path='/Profile' element={<Profile />}> </Route>
       </Routes>
-    </>
+    </LocalizationProvider>
   )
 }
 
