@@ -16,22 +16,22 @@ const bull = (
     </Box>
 );
 
-const card = (
+const card = (props) =>(
     <React.Fragment>
         <CardContent sx={{bgcolor:'lightgrey'}}>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                Word of the Day
+                { props.companyName}
             </Typography>
             <Typography variant="h5" component="div">
-                be{bull}nev{bull}o{bull}lent
+                {props.title}
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                adjective
+                {props.institute}
             </Typography>
             <Typography variant="body2">
-                well meaning and kindly.
+               {`Author: ` + props.author }
                 <br />
-                {'"a benevolent smile"'}
+                {`Mentor: `+props.mentor}
             </Typography>
         </CardContent>
         <CardActions>
@@ -40,10 +40,10 @@ const card = (
     </React.Fragment>
 );
 
-export default function OutlinedCard() {
+export default function OutlinedCard(props) {
     return (
         <Box sx={{ minWidth: 250,  overflow:'hidden', scrollSnapAlign:'center', bgcolor:'grey' }}>
-            <Card variant="outlined" >{card}</Card>
+            <Card variant="outlined" >{card(props.cardData)}</Card>
         </Box>
     );
 }
