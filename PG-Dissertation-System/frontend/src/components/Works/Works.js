@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography'
 import { Box } from '@mui/system'
 import FullWidthTabs from '../TabMenu/WorksTabs/TabPanel'
 
-function Works() {
+function Works() {  
     const {isLoggedin} = useSelector(state=>state)
     const navigate = useNavigate();
     useEffect(() => {
