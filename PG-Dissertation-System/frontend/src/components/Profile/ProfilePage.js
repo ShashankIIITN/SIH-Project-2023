@@ -21,6 +21,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import WorkIcon from '@mui/icons-material/Work';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import ScienceIcon from '@mui/icons-material/Science';
+import Button from '@mui/material/Button'
 
 
 export default function ProfilePage(props) {
@@ -58,7 +59,8 @@ function ProfileBody(props) {
             justifyContent: 'center',
             alignContent: 'center',
             bgcolor: 'aliceblue',
-            minHeight: '92vh'
+            minHeight: '100%',
+            marginTop:'10px'
         }}>
             <Box
                 sx={{
@@ -70,10 +72,11 @@ function ProfileBody(props) {
                     padding: '4rem',
                     borderRadius: '1rem',
                     minHeight: '30rem',
-                    bgcolor: 'lightblue'
+                    bgcolor: 'lightskyblue',
+                    boxShadow:'0px 0px 10px'
                 }}
             >
-                <Paper
+                <Paper 
                     sx={{
                         margin: 'auto',
                         bgcolor: 'white',
@@ -135,6 +138,10 @@ function ProfileBody(props) {
                         )
                     }
                     </List>
+
+                    <Button variant="contained" color="info" sx={{marginBottom:'1rem'}}>
+                      Link With Institute
+                    </Button>
                 </Paper>
 
             </Box>

@@ -19,8 +19,7 @@
 }
 
 .dissertation-card-container > * {
-    margin: 10px;
-    padding: 20px;
+    padding: 1rem;
     box-shadow: 0 5px 10px -5px rgb(162, 162, 162);
 }
 
@@ -34,7 +33,6 @@
     align-content: start;
     align-items: center;
     justify-content: start;
-    gap: 10px 20px;
 }
 
 .dissertation-card > :nth-child(1) {

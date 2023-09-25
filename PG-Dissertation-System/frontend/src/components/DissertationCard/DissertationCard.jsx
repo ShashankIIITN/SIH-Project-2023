@@ -13,12 +13,12 @@ export default function DissertationCard(props) {
                     </Paper>    
                     <Paper variant='outlined'>
                         <div className='dissertation-card'>
-                            <Typography variant='h4'>{title}</Typography>
+                            <Typography variant='h4' textAlign={'left'}>{title}</Typography>
                             <BookmarkIcon/>
-                            <Typography>{tags.map(tag => '#' + tag).join(' ')}</Typography>
-                            <Typography>Author: {author}</Typography>
-                            <Typography>Mentor: {mentor}</Typography>
-                            <Typography>{date}</Typography>
+                            <Typography textAlign={'left'}>{tags.map(tag => '#' + tag).join(' ')}</Typography>
+                            <Typography >Author: {author}</Typography>
+                            <Typography marginLeft={2}>Mentor: {mentor}</Typography>
+                            <Typography marginLeft={2}>{date}</Typography>
                             <Button>View</Button>
                         </div>
                     </Paper>

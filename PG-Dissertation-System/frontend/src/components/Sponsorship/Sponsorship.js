@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import PrimarySearchAppBar from '../AppBar/AppBar'
 import Typography from '@mui/material/Typography'
 import { Box } from '@mui/material'
-import OutlinedCard from './sponsorshipcards.js/SponsorshipCards'
+import OutlinedCard from './sponsorshipcards/SponsorshipCards'
 import DissertationCard from '../DissertationCard/DissertationCard'
 
 
@@ -92,10 +92,11 @@ function Sponsorship() {
                     })}
                 </div>
             </Box>
-            <Typography variant="h4" color="initial"><u>Sponsored Dissertations</u></Typography>
-            <Box marginLeft={2} bgcolor={'aliceblue'} justifySelf={'center'}>
-                {/* <div className="spcards">
+            {/* <div className="spcards">
 
+<OutlinedCard />
+<OutlinedCard />
+<OutlinedCard />
                     <OutlinedCard />
                     <OutlinedCard />
                     <OutlinedCard />
@@ -104,11 +105,10 @@ function Sponsorship() {
                     <OutlinedCard />
                     <OutlinedCard />
                     <OutlinedCard />
-                    <OutlinedCard />
-                    <OutlinedCard />
-                    <OutlinedCard />
-
+                    
                 </div> */}
+            <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+                <Typography variant="h4" color="initial"><u>Sponsored Dissertations</u></Typography>
 
                 {recentDisserts.map((carddata) => {
                     return <DissertationCard key={carddata.ID} CardData={carddata} />

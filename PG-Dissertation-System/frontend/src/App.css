@@ -1,6 +1,12 @@
 html {
   height: 100%;
+  width: 100%;
   /* overflow: hidden; */
+}
+
+body{
+  height: 100%;
+  width: 100%;
 }
 
 /* div{
@@ -28,10 +34,12 @@ html {
   width: 100%;
 }
 
-/* .scrolldiv {
-  overflow: auto;
-  height: 75vh;
-} */
+.scrolldiv {
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-items: center;
+}
 
 /* .MuiBox-root::-webkit-scrollbar {
   width: 20px;

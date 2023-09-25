@@ -45,7 +45,7 @@ function a11yProps(index) {
 }
 
 export default function FullWidthTabs(props) {
-    const DissCardData = useSelector(state=>state.dissertations.recentDisserts)
+    const DissCardData = useSelector(state => state.dissertations.recentDisserts)
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
     const ticketData = useSelector(state => state.tickets.allTickets);
@@ -81,9 +81,10 @@ export default function FullWidthTabs(props) {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    {DissCardData.map((carddata) => {
-                        return <DissertationCard key={carddata.ID} CardData={carddata} />
-                    })}
+                    
+                        {DissCardData.map((carddata) => {
+                            return <DissertationCard key={carddata.ID} CardData={carddata} />
+                        })}
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     {DissCardData.map((carddata) => {

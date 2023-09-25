@@ -26,8 +26,8 @@ function HistoryPage() {
     return (
         <>
             <PrimarySearchAppBar appdata={navData} />
-            <Container maxWidth="lg" disableGutters sx={{ textAlign: 'center', paddingTop: 2 }}>
-                <Box>
+            <Container maxWidth="lg"  disableGutters  sx={{ display:'flex', justifyContent:'center', textAlign: 'center', paddingTop: 2 }}>
+                <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
                     <Typography variant="h4" color="initial"><u>Recent Reads</u></Typography>
                     {historyDissCardData.map((carddata) => {
                         return <DissertationCard key={carddata.ID} CardData={carddata} />

@@ -249,7 +249,7 @@ export default function PrimarySearchAppBar(props) {
               component="div"
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              {props.appdata.name}
+              <Link to='/' style={{textDecoration:'none', color:'white'}}>{props.appdata.name}</Link>
             </Typography>
             {/* <Searchbar /> */}
             {/* <Search>
