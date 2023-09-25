@@ -172,7 +172,6 @@ export default function PrimarySearchAppBar(props) {
           <MenuItem onClick={elements.handler} key={elements.name}>{elements.name}</MenuItem>
           )
         }
-        <MenuItem onClick={()=>{navigate('./advSearch')}} key={'advSearch'}>Adv Search</MenuItem>
     </Menu>
   );
 

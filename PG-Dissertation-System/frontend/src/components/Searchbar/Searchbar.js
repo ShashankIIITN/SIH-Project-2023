@@ -11,14 +11,26 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import React from "react";
 import { styled } from '@mui/material/styles';
 import "./searchbar.css"
+import { useNavigate } from 'react-router-dom';
 const DemoPaper = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
 }));
 const Searchbar = () => {
+  const handleEnterKey = (e) =>{
+    if(e.key == "Enter" && e.target.value != "")
+    {
+        navigate('/advSearch')
+    }
+  }
+
+  const navigate = useNavigate()
+
   const [checked, setChecked] = React.useState(false);
 
 
   const [back1, setback1] = React.useState('#1976d2');
+
+
 
   const handleback1change = () => {
 
@@ -32,7 +44,7 @@ const Searchbar = () => {
     setChecked((prev) => !prev);
   };
   return (<Collapse in={checked} timeout={500} orientation="horizontal" collapsedSize={54} onEntering={handleback1change} onExited={handleback1change}>
-    <Accordion fullwidth disableGutters={true} sx={{overflow:'visible'}}><TextField sx={{ background: back1, height: '3.3rem' }}
+    <Accordion fullwidth disableGutters={true} sx={{overflow:'visible'}}><TextField  onKeyDown={handleEnterKey} sx={{ background: back1, height: '3.3rem' }}
       fullWidth disabled={!checked} InputProps={{
         startAdornment: <InputAdornment position="start"><IconButton sx={{ background: back1 }} onClick={handleChange}><SearchIcon /></IconButton></InputAdornment>,
         endAdornment: <AccordionSummary><InputAdornment position="end"><IconButton ><TuneIcon /></IconButton ></InputAdornment></AccordionSummary>,
