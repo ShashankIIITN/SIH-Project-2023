@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import TextField from '@mui/material/TextField';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -64,7 +64,7 @@ const Advsearch = () => {
                     ev.preventDefault();
                     }
                 }}
-                renderInput={(params) => <TextField variant="standard" {...params} label="Tags"/>}></Autocomplete>
+                renderInput={(params) => <TextField variant="filled" {...params} label="Tags"/>}></Autocomplete>
                 <Paper
                     sx={{
                         display: 'flex',
@@ -93,7 +93,7 @@ const Advsearch = () => {
                 </Paper>
                 </Grid>
                 <Grid item xs={6}>
-                  <TextField variant="standard" inputRef={inputRef} fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
+                  <TextField variant="filled" inputRef={inputRef} fullWidth label="Keywords" onChange={(v) => setValue(v.target.value) } onKeyDown={(ev) => {
                     if (ev.key === 'Enter' && textv.length > 0 ) {
                         let x=0;
                         if(checked)
@@ -141,11 +141,13 @@ const Advsearch = () => {
                 </Paper>
                 </Grid>
                 <Grid item xs={12}>
+                  <Typography align='left'>
                     Date of Publication
+                    </Typography>
                 <LocalizationProvider dateAdapter={AdapterDayjs} fullWidth>
                 <DemoContainer sx={{overflow:'hidden'}} components={['DatePicker']} fullWidth>
-                    <DatePicker label="From" slotProps={{ textField:  { fullWidth: true, variant: "standard" } }}/>
-                    <DatePicker label="To" slotProps={{ textField: { fullWidth: true, variant:"standard" } }}/>
+                    <DatePicker label="From" slotProps={{ textField:  { fullWidth: true, variant: "filled" } }}/>
+                    <DatePicker label="To" slotProps={{ textField: { fullWidth: true, variant:"filled" } }}/>
                 </DemoContainer>
                 </LocalizationProvider>
                 </Grid>
@@ -154,7 +156,7 @@ const Advsearch = () => {
                 freeSolo
                 id="Institute"
                 options={top100Films}
-                renderInput={(params) => <TextField variant="standard" {...params} label="Institute" />}
+                renderInput={(params) => <TextField variant="filled" {...params} label="Institute" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
@@ -162,7 +164,7 @@ const Advsearch = () => {
                 freeSolo
                 id="Department"
                 options={top100Films}
-                renderInput={(params) => <TextField variant="standard" {...params} label="Department" />}
+                renderInput={(params) => <TextField variant="filled" {...params} label="Department" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
@@ -170,7 +172,7 @@ const Advsearch = () => {
                 freeSolo
                 id="Author"
                 options={top100Films}
-                renderInput={(params) => <TextField variant="standard" {...params} label="Author" />}
+                renderInput={(params) => <TextField variant="filled" {...params} label="Author" />}
                 />
                 </Grid>
                 <Grid item xs={6}>
@@ -178,7 +180,7 @@ const Advsearch = () => {
                 freeSolo
                 id="Mentor"
                 options={top100Films}
-                renderInput={(params) => <TextField variant="standard" {...params} label="Mentor" />}
+                renderInput={(params) => <TextField variant="filled" {...params} label="Mentor" />}
                 />
                 </Grid> 
                 </Grid>  
