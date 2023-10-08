@@ -8,10 +8,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import { InputAdornment } from '@mui/material';
+import {IconButton} from '@mui/material';
 import Modal from '@mui/material/Modal';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 const style = {
     position: 'absolute',
     top: '50%',
@@ -30,9 +32,10 @@ const style = {
 export default function RegisterModal(props) {
     const open = props.state;
     const setOpen = props.setRegWindow;
+    const templog1=props.templogin;
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
+    const templog = () =>templog1();
     return (
         <div>
             <Modal
@@ -42,7 +45,7 @@ export default function RegisterModal(props) {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <RegisterBody closeAction={handleClose}/>
+                    <RegisterBody closeAction={handleClose} templog={templog}/>
                 </Box>
             </Modal>
         </div>
@@ -54,8 +57,13 @@ const tagOptions = [
     "Generating Functions",
     "Madness",
 ];
-
-function RegisterBody({closeAction}) {
+function RegisterBody({closeAction,templog}) {
+    const [showPassword, setShowPassword] = React.useState(false);
+const handleClickShowPassword = () => setShowPassword(!showPassword);
+const handleMouseDownPassword = () => setShowPassword(!showPassword);
+const [showPassword1, setShowPassword1] = React.useState(false);
+const handleClickShowPassword1 = () => setShowPassword1(!showPassword1);
+const handleMouseDownPassword1 = () => setShowPassword1(!showPassword1);
     return (
         <Container sx={{ bgcolor: 'white' }}>
             <Box
@@ -111,6 +119,20 @@ function RegisterBody({closeAction}) {
                         <TextField
                             label="Password"
                             variant="filled"
+                            type={showPassword ? "text" : "password"} 
+                            InputProps={{ // <-- This is where the toggle button is added.
+                                endAdornment: (
+                                  <InputAdornment position="end">
+                                    <IconButton
+                                      aria-label="toggle password visibility"
+                                      onClick={handleClickShowPassword}
+                                      onMouseDown={handleMouseDownPassword}
+                                    >
+                                      {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </IconButton>
+                                  </InputAdornment>
+                                )
+                              }}
                             fullWidth
                         />
 
@@ -120,6 +142,20 @@ function RegisterBody({closeAction}) {
                         <TextField
                             label="Confirm Password"
                             variant="filled"
+                            type={showPassword1 ? "text" : "password"} 
+                            InputProps={{ // <-- This is where the toggle button is added.
+                                endAdornment: (
+                                  <InputAdornment position="end">
+                                    <IconButton
+                                      aria-label="toggle password visibility"
+                                      onClick={handleClickShowPassword1}
+                                      onMouseDown={handleMouseDownPassword1}
+                                    >
+                                      {showPassword1 ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                                    </IconButton>
+                                  </InputAdornment>
+                                )
+                              }}
                             fullWidth
                         />
                     </Grid>
@@ -153,6 +189,7 @@ function RegisterBody({closeAction}) {
                 </Box>
 
                 <Button
+                    onClick={templog}
                     variant='contained'
                     sx={{ minWidth: 'min(100%, 20em)', height: '3.5em', marginTop: '4em' }}
                 >

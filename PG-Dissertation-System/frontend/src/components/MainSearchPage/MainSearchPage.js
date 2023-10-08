@@ -21,7 +21,7 @@ function MainSearchPage(props) {
     const { isLoggedin } = useSelector(state => state);
     const navData = {
         "name": "MyApp",
-        "user": "None",
+        "user": "Smit",
         "page": "MainPage",
         "userID": ""
     }

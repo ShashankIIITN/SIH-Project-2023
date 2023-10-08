@@ -92,6 +92,7 @@ export default function PrimarySearchAppBar(props) {
   }
   const handleLogin = () => {
     dispatch(setLogin(true));
+    setisRegWinOpen(false);
   }
   const handleLogout = () => {
     dispatch(setLogin(false));
@@ -316,7 +317,7 @@ export default function PrimarySearchAppBar(props) {
 
         handler={DropdownHandler}
       />
-      <RegisterModal state={isRegWinOpen} setRegWindow = {setisRegWinOpen}/>
+      <RegisterModal state={isRegWinOpen} setRegWindow = {setisRegWinOpen} templogin={handleLogin}/>
     </>
   );
 }

@@ -54,7 +54,7 @@ const Advsearch = () => {
   };
     return (                <Grid container spacing={2}>
                 <Grid item xs={12}>
-                <TextField variant="standard" fullWidth label="ISSN/DOI Number"></TextField>
+                <TextField variant="filled" fullWidth label="ISSN/DOI Number"></TextField>
                 </Grid>
                 <Grid item xs={6}>
                 <Autocomplete variant="standard"
