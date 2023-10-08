@@ -36,7 +36,7 @@
 
 .dissertation-card {
     display: grid;
-    grid-template: auto auto auto / repeat(3, auto) 1fr auto;
+    grid-template: auto auto auto / repeat(3, auto) 1fr auto auto;
     align-content: start;
     align-items: center;
     justify-content: start;
@@ -56,7 +56,11 @@
 }
 
 
-.dissertation-card > :nth-child(7) {
+.dissertation-card > button.show-mentors {
+    grid-column-start: -3;
+}
+
+.dissertation-card > button.view-dissertation {
     grid-column-start: -2;
 }
 

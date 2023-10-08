@@ -3,7 +3,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import './DissertationCard.css'
 
 export default function DissertationCard(props) {
-    const { title, tags, author, mentor, date } = props.CardData
+    const { title, tags, author, mentor, date, showMentors } = props.CardData
     return (
         <div className="dissertation-card-container">
             <Paper variant='outlined'>
@@ -25,7 +25,10 @@ export default function DissertationCard(props) {
                     <Typography >Author: {author}</Typography>
                     <Typography marginLeft={2}>Mentor: {mentor}</Typography>
                     <Typography marginLeft={2}>Date of Publication:{date}</Typography>
-                    <Button>View</Button>
+                    {
+                        showMentors && <Button className='show-mentors'>Mentors</Button>
+                    }
+                    <Button className='view-dissertation'>View</Button>
                 </div>
             </Paper>
         </div>
