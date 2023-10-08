@@ -69,3 +69,14 @@
 .dissertation-card > :nth-child(7) {
     grid-column-start: -2;
 }
+
+div.tag-container {
+    display: flex;
+    gap: 10px;
+}
+
+div.topic-tag {
+    border-radius: 10px;
+    background-color: #799fc5;
+    padding: 0 5px;
+}

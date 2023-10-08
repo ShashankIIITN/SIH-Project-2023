@@ -15,7 +15,16 @@ export default function DissertationCard(props) {
                         <div className='dissertation-card'>
                             <Typography variant='h5' textAlign={'left'}>{title}</Typography>
                             <BookmarkIcon/>
-                            <Typography textAlign={'left'}>{tags.map(tag => '#' + tag).join(' ')}</Typography>
+                            
+                            <div className="tag-container">
+                                {
+                                    tags.map(tag =>
+                                        <div className="topic-tag">
+                                            <Typography>{tag}</Typography>
+                                        </div>)
+                                }
+                            </div>
+                            {/* <Typography textAlign={'left'}>{tags.map(tag => '#' + tag).join(' ')}</Typography> */}
                             <Typography >Author: {author}</Typography>
                             <Typography marginLeft={2}>Mentor: {mentor}</Typography>
                             <Typography marginLeft={2}>{date}</Typography>
