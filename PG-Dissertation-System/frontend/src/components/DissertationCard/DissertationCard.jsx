@@ -5,15 +5,15 @@ import './DissertationCard.css'
 export default function DissertationCard(props) {
     const { title, tags, author, mentor, date } = props.CardData
     return (
-        <Card sx={{margin: 2, maxWidth:'90%'}} elevation={5}>
-            <CardContent>
+        // <Card sx={{margin: 2}} elevation={5}>
+        //     <CardContent>
                 <div className="dissertation-card-container">
                     <Paper variant='outlined'>
                         <div className='disseration-image' src='https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg' />
                     </Paper>    
                     <Paper variant='outlined'>
                         <div className='dissertation-card'>
-                            <Typography variant='h4' textAlign={'left'}>{title}</Typography>
+                            <Typography variant='h5' textAlign={'left'}>{title}</Typography>
                             <BookmarkIcon/>
                             <Typography textAlign={'left'}>{tags.map(tag => '#' + tag).join(' ')}</Typography>
                             <Typography >Author: {author}</Typography>
@@ -23,7 +23,7 @@ export default function DissertationCard(props) {
                         </div>
                     </Paper>
                 </div>
-            </CardContent>
-        </Card>
+        //     </CardContent>
+        // </Card>
     )
 }

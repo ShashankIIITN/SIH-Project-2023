@@ -5,8 +5,7 @@
 
 .dissertation-card-container > :nth-child(1) {
     flex: 0 1 auto;
-    width: 150px;
-    aspect-ratio: 1 / 1;
+    width: 100px;
 }
 
 .disseration-image {
@@ -21,10 +20,17 @@
 .dissertation-card-container > * {
     padding: 1rem;
     box-shadow: 0 5px 10px -5px rgb(162, 162, 162);
+    margin-bottom: 10px;
 }
 
 .dissertation-card-container > :nth-child(2) {
     flex-grow: 1;
+}
+
+.dissertation-card > * {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .dissertation-card {
@@ -33,6 +39,7 @@
     align-content: start;
     align-items: center;
     justify-content: start;
+    padding: 5px;
 }
 
 .dissertation-card > :nth-child(1) {
