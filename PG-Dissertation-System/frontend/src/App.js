@@ -18,6 +18,7 @@ import Advsearchsidebar from './components/Searchbar/Advsearchsidebar';
 import CustomizedAccordions from './components/Saved/PlaylistAccordian/SavedAccordian';
 import { useSelector } from 'react-redux';
 import AdvSearchPage from './components/AdvSearchpage/AdvSearchPage';
+import DissertationCard from './components/DissertationCard/DissertationCard';
 
 
 
@@ -29,6 +30,7 @@ function App() {
     <div className="App">
       {/* <Searchbar/> */}
       {/* <Advsearchsidebar/> */}
+      {/* <DissertationCard></DissertationCard> */}
       <Routes>
         <Route path="/" element={<MainSearchPage />}></Route>
         <Route path="/AvdSearchPage" element={<MainSearchPage />}></Route>

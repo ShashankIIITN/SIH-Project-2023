@@ -107,7 +107,7 @@ function Sponsorship() {
                     <OutlinedCard />
                     
                 </div> */}
-            <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+            <Box display={'flex'} flexDirection={'column'} alignItems={'stretch'} sx={{padding:2}} color="initial">
                 <Typography variant="h4" color="initial"><u>Sponsored Dissertations</u></Typography>
 
                 {recentDisserts.map((carddata) => {

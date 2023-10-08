@@ -68,7 +68,7 @@ const Advsearchsidebar = () => {
         <Grid item xs={12} />
         <Grid item xs={1} />
         <Grid item xs={10} sx={{ overflow: 'hidden' }}>
-          <TextField variant="filled" fullWidth label="ISSN/DOI Number" InputProps={{ disableUnderline: true }}></TextField>
+          <TextField variant="filled" fullWidth label="ISSN/DOI Number" ></TextField>
         </Grid>
         <Grid item xs={1} />
         <Grid item xs={1} />
@@ -80,7 +80,7 @@ const Advsearchsidebar = () => {
                 ev.preventDefault();
               }
             }}
-            renderInput={(params) => <TextField variant="filled" {...params} label="Tags" InputProps={{ disableUnderline: true }}/>}></Autocomplete>
+            renderInput={(params) => <TextField variant="filled" {...params} label="Tags"/>}></Autocomplete>
           <Paper
             sx={{
               display: 'flex',
@@ -119,7 +119,7 @@ const Advsearchsidebar = () => {
               insertchip1(textv, x, ev);
               ev.preventDefault();
             }
-          }} InputProps={{disableUnderline: true,
+          }} InputProps={{
             endAdornment: <InputAdornment position="end"><FormGroup>
               <FormControlLabel control={<Switch checked={checked} onChange={toggleChecked} onClick={handleClick} />} label={`${checked ? 'Include' : 'Exclude'}`} /></FormGroup></InputAdornment>
           }}></TextField>
@@ -185,7 +185,7 @@ const Advsearchsidebar = () => {
             freeSolo
             id="Institute"
             options={top100Films}
-            renderInput={(params) => <TextField variant="filled" {...params} label="Institute" InputProps={{ disableUnderline: true }}/>}
+            renderInput={(params) => <TextField variant="filled" {...params} label="Institute" />}
           />
         </Grid>
         <Grid item xs={1} />
@@ -195,7 +195,7 @@ const Advsearchsidebar = () => {
             freeSolo
             id="Department"
             options={top100Films}
-            renderInput={(params) => <TextField variant="filled" {...params} label="Department" InputProps={{ disableUnderline: true }}/>}
+            renderInput={(params) => <TextField variant="filled" {...params} label="Department" />}
           />
         </Grid>
         <Grid item xs={1} />
@@ -205,7 +205,7 @@ const Advsearchsidebar = () => {
             freeSolo
             id="Author"
             options={top100Films}
-            renderInput={(params) => <TextField variant="filled" {...params} label="Author" InputProps={{ disableUnderline: true }}/>}
+            renderInput={(params) => <TextField variant="filled" {...params} label="Author"/>}
           />
         </Grid>
         <Grid item xs={1} />
@@ -215,7 +215,7 @@ const Advsearchsidebar = () => {
             freeSolo
             id="Mentor"
             options={top100Films}
-            renderInput={(params) => <TextField variant="filled" {...params} label="Mentor" InputProps={{ disableUnderline: true }}/>}
+            renderInput={(params) => <TextField variant="filled" {...params} label="Mentor" />}
           />
         </Grid>
       </Grid>

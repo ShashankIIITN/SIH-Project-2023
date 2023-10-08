@@ -11,7 +11,7 @@ export default function DissertationCard(props) {
                     <Paper variant='outlined'>
                         <div className='disseration-image' src='https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg' />
                     </Paper>    
-                    <Paper variant='outlined'>
+                    <Paper variant='outlined' fullwidth>
                         <div className='dissertation-card'>
                             <Typography variant='h5' textAlign={'left'}>{title}</Typography>
                             <BookmarkIcon/>
@@ -27,7 +27,7 @@ export default function DissertationCard(props) {
                             {/* <Typography textAlign={'left'}>{tags.map(tag => '#' + tag).join(' ')}</Typography> */}
                             <Typography >Author: {author}</Typography>
                             <Typography marginLeft={2}>Mentor: {mentor}</Typography>
-                            <Typography marginLeft={2}>{date}</Typography>
+                            <Typography marginLeft={2}>Date of Publication:{date}</Typography>
                             <Button>View</Button>
                         </div>
                     </Paper>
